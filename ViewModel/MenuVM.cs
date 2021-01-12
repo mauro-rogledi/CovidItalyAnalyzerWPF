@@ -25,28 +25,51 @@ namespace WPFCovidItalyAnalizer.ViewModel
             set { SetValue<Visibility>(ref regionVisible, value); }
         }
 
-        private Brush regionBackColor;
+        private bool regionSelected;
 
-        public Brush RegionBackColor
+        public bool RegionSelected
         {
-            get { return regionBackColor; }
-            set { SetValue<Brush>(ref regionBackColor, value); }
+            get { return regionSelected; }
+            set { 
+                SetValue<bool>(ref regionSelected, value); 
+                if (value)
+                {
+                    CountySelected = false;
+                    ItalySelected = false;
+                    RegionVisible = Visibility.Visible;
+                }
+            }
         }
 
-        private Brush countyBackColor;
+        private bool countySelected;
 
-        public Brush CountyBackColor
+        public bool CountySelected
         {
-            get { return countyBackColor; }
-            set { SetValue<Brush>(ref countyBackColor, value); }
+            get { return countySelected; }
+            set { 
+                SetValue<bool>(ref countySelected, value);
+                if (value)
+                {
+                    RegionSelected = false;
+                    ItalySelected = false;
+                    RegionVisible = Visibility.Collapsed;
+                }
+            }
         }
 
-        private Brush italyBackColor;
+        private bool italySelected;
 
-        public Brush ItalyBackColor
+        public bool ItalySelected
         {
-            get { return italyBackColor; }
-            set { SetValue<Brush>(ref italyBackColor, value); }
+            get { return italySelected; }
+            set { 
+                SetValue<bool>(ref italySelected, value); 
+                if (value)
+                {
+                    RegionSelected = false;
+                    CountySelected = false;
+                }
+            }
         }
 
         internal void Select(string name)
@@ -54,21 +77,12 @@ namespace WPFCovidItalyAnalizer.ViewModel
             switch(name)
             {
                 case "Region":
-                    RegionBackColor = selected;
-                    CountyBackColor = background;
-                    ItalyBackColor = background;
                     RegionVisible = Visibility.Visible;
                     break;
                 case "County":
-                    CountyBackColor = selected;
-                    RegionBackColor = background;
-                    ItalyBackColor = background;
                     RegionVisible = Visibility.Collapsed;
                     break;
                 case "Italy":
-                    ItalyBackColor = selected;
-                    CountyBackColor = background;
-                    RegionBackColor = background;
                     RegionVisible = Visibility.Collapsed;
                     break;
             }
@@ -92,8 +106,6 @@ namespace WPFCovidItalyAnalizer.ViewModel
 
         public MenuVM()
         {
-            regionBackColor = background;
-            countyBackColor = background;
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -30,15 +31,10 @@ namespace WPFCovidItalyAnalizer
             menuVM = Resources["vmMenu"] as MenuVM;
         }
 
-        private void Label_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Label ctrl = sender as Label;
+            ToggleButton ctrl = sender as ToggleButton;
             menuVM.Select(ctrl.Name);
-        }
-
-        private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            menuVM.RegionBackColor = Brushes.Gray;
         }
     }
 }

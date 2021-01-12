@@ -7,11 +7,12 @@
         xmlns:vm="clr-namespace:WPFCovidItalyAnalizer.ViewModel"
         xmlns:uc="clr-namespace:WPFCovidItalyAnalizer.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="800">
     <Window.Resources>
         <vm:MenuVM x:Key="vmMenu"/>
         <SolidColorBrush x:Key="BackgroundBarColor" Color="#FF2B579A"/>
         <SolidColorBrush x:Key="MouseOverButtonColor" Color="#FF124078"/>
+        <SolidColorBrush x:Key="SelectedButtonColor" Color="#FF002050"/>
         <Style x:Key="LabelButton" TargetType="Label">
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -19,7 +20,70 @@
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
-        <Style x:Key="LabelClick" BasedOn="{StaticResource LabelButton}" TargetType="Label">
+        <Style TargetType="ToggleButton" x:Key="toggle">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="{StaticResource BackgroundBarColor}"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border x:Name="border"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            SnapsToDevicePixels="True">
+                            <ContentPresenter x:Name="contentPresenter"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                  Content="{TemplateBinding Content}"
+                                                  ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                                  Focusable="False"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  Margin="{TemplateBinding Padding}"
+                                                  RecognizesAccessKey="True"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>            
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource MouseOverButtonColor}"/>
+                </Trigger>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="{StaticResource SelectedButtonColor}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="{StaticResource BackgroundBarColor}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            SnapsToDevicePixels="True">
+                            <ContentPresenter x:Name="contentPresenter"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                  Content="{TemplateBinding Content}"
+                                                  ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                                  Focusable="False"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  Margin="{TemplateBinding Padding}"
+                                                  RecognizesAccessKey="True"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="{StaticResource MouseOverButtonColor}"/>
@@ -44,77 +108,17 @@
                     <Run Text="Analyzer" />
                 </TextBlock>
             </Label>
-            <Label x:Name="Region"  Height="80"  MouseLeftButtonUp="Label_MouseLeftButtonUp">
-                <TextBlock TextAlignment="Center" VerticalAlignment="Center" Width="110" Text="Region"
-                          />
-                <Label.Style>
-                    <Style TargetType="Label" BasedOn="{StaticResource LabelClick}">
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="False">
-                                <Setter Property="Background" Value="{Binding RegionBackColor}"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Label.Style>
-            </Label>
-            <Label x:Name="County" Height="80"  MouseLeftButtonUp="Label_MouseLeftButtonUp">
-                <TextBlock TextAlignment="Center" VerticalAlignment="Center" Width="110" Text="County"/>
-                <Label.Style>
-                    <Style TargetType="Label" BasedOn="{StaticResource LabelClick}">
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="False">
-                                <Setter Property="Background" Value="{Binding CountyBackColor}"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Label.Style>
-            </Label>
-            <Label x:Name="Italy" Height="80"  MouseLeftButtonUp="Label_MouseLeftButtonUp">
-                <TextBlock TextAlignment="Center" VerticalAlignment="Center" Width="110" Text="Italy"/>
-                <Label.Style>
-                    <Style TargetType="Label" BasedOn="{StaticResource LabelClick}">
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="False">
-                                <Setter Property="Background" Value="{Binding ItalyBackColor}"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Label.Style>
-            </Label>            
+            <ToggleButton x:Name="Region" Style="{StaticResource toggle}" Content="Region" IsChecked="{Binding RegionSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <ToggleButton x:Name="County" Style="{StaticResource toggle}" Content="County" IsChecked="{Binding CountySelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <ToggleButton x:Name="Italy" Style="{StaticResource toggle}" Content="Italy" IsChecked="{Binding ItalySelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Background="{StaticResource BackgroundBarColor}">
-            <Separator Margin="20,0,20,5">
-            </Separator>
-            <Label x:Name="Refresh" Height="30" FontSize="12" MouseLeftButtonUp="Label_MouseLeftButtonUp">
-                <TextBlock 
-                    TextAlignment="Center" 
-                    VerticalAlignment="Top" 
-                    Width="110" Text="Refresh"/>
-                <Label.Style>
-                    <Style TargetType="Label" BasedOn="{StaticResource LabelClick}">
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="False">
-                                <Setter Property="Background" Value="{Binding ButtonBackColor}"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Label.Style>
-            </Label>
-            <Label x:Name="Settings" Height="30" FontSize="12" MouseLeftButtonUp="Label_MouseLeftButtonUp">
-                <TextBlock 
-                    TextAlignment="Center" 
-                    VerticalAlignment="Top" 
-                    Width="110" Text="Settings"/>
-                <Label.Style>
-                    <Style TargetType="Label" BasedOn="{StaticResource LabelClick}">
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="False">
-                                <Setter Property="Background" Value="{Binding ButtonBackColor}"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Label.Style>
-            </Label>
+            <!--<Separator Margin="10,5" 
+                       Foreground="blue"
+                       Background="red">
+            </Separator>-->
+            <Button Content="Refresh"></Button>
+            <Button Content="Settings"></Button>
             <Label></Label>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.RowSpan="2">
