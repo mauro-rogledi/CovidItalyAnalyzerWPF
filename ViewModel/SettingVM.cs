@@ -5,11 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using WPFCovidItalyAnalizer.Library;
+
 namespace WPFCovidItalyAnalizer.ViewModel
 {
     public class SettingVM : BaseVM, INotifyPropertyChanged
     {
         private string folderData;
+        const string waterMark = "Clicca per inserire";
 
         public string Folder
         {
@@ -27,8 +30,17 @@ namespace WPFCovidItalyAnalizer.ViewModel
 
         public SettingVM()
         {
-            KeepData = true;
-            folderData = "Clicca per inserire";
+            KeepData = SettingManager.KeepACopy;
+            folderData = SettingManager.FolderData;
+            if (folderData==string.Empty)
+                folderData = waterMark;
+        }
+
+        internal void Save()
+        {
+            SettingManager.KeepACopy = KeepData;
+            SettingManager.FolderData = folderData == waterMark ? string.Empty : folderData;
+            SettingManager.SaveData();
         }
     }
 }

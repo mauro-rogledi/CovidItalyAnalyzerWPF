@@ -2,7 +2,7 @@
 
 using System;
 
-namespace WPFCovidItalyAnalizer.ModelData
+namespace WPFCovidItalyAnalizer.Model
 {
     public class RegionData
     {

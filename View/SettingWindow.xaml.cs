@@ -32,8 +32,9 @@ namespace WPFCovidItalyAnalizer.View
             settingVM = Resources["VM"] as SettingVM;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Ok(object sender, RoutedEventArgs e)
         {
+            settingVM.Save();
             this.DialogResult = true;
             this.Close();
         }

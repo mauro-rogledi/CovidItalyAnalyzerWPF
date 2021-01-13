@@ -1,0 +1,850 @@
+[
+  {
+    "codice_regione": 19,
+    "denominazione_regione": "Sicilia",
+    "codice_provincia": 84,
+    "denominazione_provincia": "Agrigento",
+    "sigla_provincia": "AG",
+    "popolazione": 429611
+  },
+  {
+    "codice_regione": 1,
+    "denominazione_regione": "Piemonte",
+    "codice_provincia": 6,
+    "denominazione_provincia": "Alessandria",
+    "sigla_provincia": "AL",
+    "popolazione": 419037
+  },
+  {
+    "codice_regione": 11,
+    "denominazione_regione": "Marche",
+    "codice_provincia": 42,
+    "denominazione_provincia": "Ancona",
+    "sigla_provincia": "AN",
+    "popolazione": 469750
+  },
+  {
+    "codice_regione": 2,
+    "denominazione_regione": "Valle d'Aosta",
+    "codice_provincia": 7,
+    "denominazione_provincia": "Aosta",
+    "sigla_provincia": "AO",
+    "popolazione": 125501
+  },
+  {
+    "codice_regione": 9,
+    "denominazione_regione": "Toscana",
+    "codice_provincia": 51,
+    "denominazione_provincia": "Arezzo",
+    "sigla_provincia": "AR",
+    "popolazione": 341766
+  },
+  {
+    "codice_regione": 11,
+    "denominazione_regione": "Marche",
+    "codice_provincia": 44,
+    "denominazione_provincia": "Ascoli Piceno",
+    "sigla_provincia": "AP",
+    "popolazione": 206363
+  },
+  {
+    "codice_regione": 1,
+    "denominazione_regione": "Piemonte",
+    "codice_provincia": 5,
+    "denominazione_provincia": "Asti",
+    "sigla_provincia": "AT",
+    "popolazione": 213216
+  },
+  {
+    "codice_regione": 15,
+    "denominazione_regione": "Campania",
+    "codice_provincia": 64,
+    "denominazione_provincia": "Avellino",
+    "sigla_provincia": "AV",
+    "popolazione": 413926
+  },
+  {
+    "codice_regione": 16,
+    "denominazione_regione": "Puglia",
+    "codice_provincia": 72,
+    "denominazione_provincia": "Bari",
+    "sigla_provincia": "BA",
+    "popolazione": 1249246
+  },
+  {
+    "codice_regione": 16,
+    "denominazione_regione": "Puglia",
+    "codice_provincia": 110,
+    "denominazione_provincia": "Barletta-Andria-Trani",
+    "sigla_provincia": "BT",
+    "popolazione": 388390
+  },
+  {
+    "codice_regione": 5,
+    "denominazione_regione": "Veneto",
+    "codice_provincia": 25,
+    "denominazione_provincia": "Belluno",
+    "sigla_provincia": "BL",
+    "popolazione": 201972
+  },
+  {
+    "codice_regione": 15,
+    "denominazione_regione": "Campania",
+    "codice_provincia": 62,
+    "denominazione_provincia": "Benevento",
+    "sigla_provincia": "BN",
+    "popolazione": 274080
+  },
+  {
+    "codice_regione": 3,
+    "denominazione_regione": "Lombardia",
+    "codice_provincia": 16,
+    "denominazione_provincia": "Bergamo",
+    "sigla_provincia": "BG",
+    "popolazione": 1116384
+  },
+  {
+    "codice_regione": 1,
+    "denominazione_regione": "Piemonte",
+    "codice_provincia": 96,
+    "denominazione_provincia": "Biella",
+    "sigla_provincia": "BI",
+    "popolazione": 174384
+  },
+  {
+    "codice_regione": 8,
+    "denominazione_regione": "Emilia-Romagna",
+    "codice_provincia": 37,
+    "denominazione_provincia": "Bologna",
+    "sigla_provincia": "BO",
+    "popolazione": 1017806
+  },
+  {
+    "codice_regione": 21,
+    "denominazione_regione": "P.A. Bolzano",
+    "codice_provincia": 21,
+    "denominazione_provincia": "Bolzano",
+    "sigla_provincia": "BZ",
+    "popolazione": 532080
+  },
+  {
+    "codice_regione": 3,
+    "denominazione_regione": "Lombardia",
+    "codice_provincia": 17,
+    "denominazione_provincia": "Brescia",
+    "sigla_provincia": "BS",
+    "popolazione": 1268455
+  },
+  {
+    "codice_regione": 16,
+    "denominazione_regione": "Puglia",
+    "codice_provincia": 74,
+    "denominazione_provincia": "Brindisi",
+    "sigla_provincia": "BR",
+    "popolazione": 390456
+  },
+  {
+    "codice_regione": 20,
+    "denominazione_regione": "Sardegna",
+    "codice_provincia": 92,
+    "denominazione_provincia": "Cagliari",
+    "sigla_provincia": "CA",
+    "popolazione": 430914
+  },
+  {
+    "codice_regione": 19,
+    "denominazione_regione": "Sicilia",
+    "codice_provincia": 85,
+    "denominazione_provincia": "Caltanissetta",
+    "sigla_provincia": "CL",
+    "popolazione": 260779
+  },
+  {
+    "codice_regione": 14,
+    "denominazione_regione": "Molise",
+    "codice_provincia": 70,
+    "denominazione_provincia": "Campobasso",
+    "sigla_provincia": "CB",
+    "popolazione": 218679
+  },
+  {
+    "codice_regione": 15,
+    "denominazione_regione": "Campania",
+    "codice_provincia": 61,
+    "denominazione_provincia": "Caserta",
+    "sigla_provincia": "CE",
+    "popolazione": 922171
+  },
+  {
+    "codice_regione": 19,
+    "denominazione_regione": "Sicilia",
+    "codice_provincia": 87,
+    "denominazione_provincia": "Catania",
+    "sigla_provincia": "CT",
+    "popolazione": 1104974
+  },
+  {
+    "codice_regione": 18,
+    "denominazione_regione": "Calabria",
+    "codice_provincia": 79,
+    "denominazione_provincia": "Catanzaro",
+    "sigla_provincia": "CZ",
+    "popolazione": 354851
+  },
+  {
+    "codice_regione": 13,
+    "denominazione_regione": "Abruzzo",
+    "codice_provincia": 69,
+    "denominazione_provincia": "Chieti",
+    "sigla_provincia": "CH",
+    "popolazione": 383189
+  },
+  {
+    "codice_regione": 3,
+    "denominazione_regione": "Lombardia",
+    "codice_provincia": 13,
+    "denominazione_provincia": "Como",
+    "sigla_provincia": "CO",
+    "popolazione": 603828
+  },
+  {
+    "codice_regione": 18,
+    "denominazione_regione": "Calabria",
+    "codice_provincia": 78,
+    "denominazione_provincia": "Cosenza",
+    "sigla_provincia": "CS",
+    "popolazione": 700385
+  },
+  {
+    "codice_regione": 3,
+    "denominazione_regione": "Lombardia",
+    "codice_provincia": 19,
+    "denominazione_provincia": "Cremona",
+    "sigla_provincia": "CR",
+    "popolazione": 358347
+  },
+  {
+    "codice_regione": 18,
+    "denominazione_regione": "Calabria",
+    "codice_provincia": 101,
+    "denominazione_provincia": "Crotone",
+    "sigla_provincia": "KR",
+    "popolazione": 170718
+  },
+  {
+    "codice_regione": 1,
+    "denominazione_regione": "Piemonte",
+    "codice_provincia": 4,
+    "denominazione_provincia": "Cuneo",
+    "sigla_provincia": "CN",
+    "popolazione": 586568
+  },
+  {
+    "codice_regione": 19,
+    "denominazione_regione": "Sicilia",
+    "codice_provincia": 86,
+    "denominazione_provincia": "Enna",
+    "sigla_provincia": "EN",
+    "popolazione": 162368
+  },
+  {
+    "codice_regione": 11,
+    "denominazione_regione": "Marche",
+    "codice_provincia": 109,
+    "denominazione_provincia": "Fermo",
+    "sigla_provincia": "FM",
+    "popolazione": 173004
+  },
+  {
+    "codice_regione": 8,
+    "denominazione_regione": "Emilia-Romagna",
+    "codice_provincia": 38,
+    "denominazione_provincia": "Ferrara",
+    "sigla_provincia": "FE",
+    "popolazione": 344840
+  },
+  {
+    "codice_regione": 9,
+    "denominazione_regione": "Toscana",
+    "codice_provincia": 48,
+    "denominazione_provincia": "Firenze",
+    "sigla_provincia": "FI",
+    "popolazione": 1004298
+  },
+  {
+    "codice_regione": 16,
+    "denominazione_regione": "Puglia",
+    "codice_provincia": 71,
+    "denominazione_provincia": "Foggia",
+    "sigla_provincia": "FG",
+    "popolazione": 616310
+  },
+  {
+    "codice_regione": 8,
+    "denominazione_regione": "Emilia-Romagna",
+    "codice_provincia": 40,
+    "denominazione_provincia": "Forlì-Cesena",
+    "sigla_provincia": "FC",
+    "popolazione": 394833
+  },
+  {
+    "codice_regione": 12,
+    "denominazione_regione": "Lazio",
+    "codice_provincia": 60,
+    "denominazione_provincia": "Frosinone",
+    "sigla_provincia": "FR",
+    "popolazione": 485241
+  },
+  {
+    "codice_regione": 7,
+    "denominazione_regione": "Liguria",
+    "codice_provincia": 10,
+    "denominazione_provincia": "Genova",
+    "sigla_provincia": "GE",
+    "popolazione": 835829
+  },
+  {
+    "codice_regione": 6,
+    "denominazione_regione": "Friuli Venezia Giulia",
+    "codice_provincia": 31,
+    "denominazione_provincia": "Gorizia",
+    "sigla_provincia": "GO",
+    "popolazione": 139206
+  },
+  {
+    "codice_regione": 9,
+    "denominazione_regione": "Toscana",
+    "codice_provincia": 53,
+    "denominazione_provincia": "Grosseto",
+    "sigla_provincia": "GR",
+    "popolazione": 220785
+  },
+  {
+    "codice_regione": 7,
+    "denominazione_regione": "Liguria",
+    "codice_provincia": 8,
+    "denominazione_provincia": "Imperia",
+    "sigla_provincia": "IM",
+    "popolazione": 213919
+  },
+  {
+    "codice_regione": 14,
+    "denominazione_regione": "Molise",
+    "codice_provincia": 94,
+    "denominazione_provincia": "Isernia",
+    "sigla_provincia": "IS",
+    "popolazione": 83586
+  },
+  {
+    "codice_regione": 7,
+    "denominazione_regione": "Liguria",
+    "codice_provincia": 11,
+    "denominazione_provincia": "La Spezia",
+    "sigla_provincia": "SP",
+    "popolazione": 219196
+  },
+  {
+    "codice_regione": 13,
+    "denominazione_regione": "Abruzzo",
+    "codice_provincia": 66,
+    "denominazione_provincia": "L'Aquila",
+    "sigla_provincia": "AQ",
+    "popolazione": 296491
+  },
+  {
+    "codice_regione": 12,
+    "denominazione_regione": "Lazio",
+    "codice_provincia": 59,
+    "denominazione_provincia": "Latina",
+    "sigla_provincia": "LT",
+    "popolazione": 576655
+  },
+  {
+    "codice_regione": 16,
+    "denominazione_regione": "Puglia",
+    "codice_provincia": 75,
+    "denominazione_provincia": "Lecce",
+    "sigla_provincia": "LE",
+    "popolazione": 791122
+  },
+  {
+    "codice_regione": 3,
+    "denominazione_regione": "Lombardia",
+    "codice_provincia": 97,
+    "denominazione_provincia": "Lecco",
+    "sigla_provincia": "LC",
+    "popolazione": 337087
+  },
+  {
+    "codice_regione": 9,
+    "denominazione_regione": "Toscana",
+    "codice_provincia": 49,
+    "denominazione_provincia": "Livorno",
+    "sigla_provincia": "LI",
+    "popolazione": 333509
+  },
+  {
+    "codice_regione": 3,
+    "denominazione_regione": "Lombardia",
+    "codice_provincia": 98,
+    "denominazione_provincia": "Lodi",
+    "sigla_provincia": "LO",
+    "popolazione": 230607
+  },
+  {
+    "codice_regione": 9,
+    "denominazione_regione": "Toscana",
+    "codice_provincia": 46,
+    "denominazione_provincia": "Lucca",
+    "sigla_provincia": "LU",
+    "popolazione": 388678
+  },
+  {
+    "codice_regione": 11,
+    "denominazione_regione": "Marche",
+    "codice_provincia": 43,
+    "denominazione_provincia": "Macerata",
+    "sigla_provincia": "MC",
+    "popolazione": 312146
+  },
+  {
+    "codice_regione": 3,
+    "denominazione_regione": "Lombardia",
+    "codice_provincia": 20,
+    "denominazione_provincia": "Mantova",
+    "sigla_provincia": "MN",
+    "popolazione": 411062
+  },
+  {
+    "codice_regione": 9,
+    "denominazione_regione": "Toscana",
+    "codice_provincia": 45,
+    "denominazione_provincia": "Massa Carrara",
+    "sigla_provincia": "MS",
+    "popolazione": 193934
+  },
+  {
+    "codice_regione": 17,
+    "denominazione_regione": "Basilicata",
+    "codice_provincia": 77,
+    "denominazione_provincia": "Matera",
+    "sigla_provincia": "MT",
+    "popolazione": 195998
+  },
+  {
+    "codice_regione": 19,
+    "denominazione_regione": "Sicilia",
+    "codice_provincia": 83,
+    "denominazione_provincia": "Messina",
+    "sigla_provincia": "ME",
+    "popolazione": 620721
+  },
+  {
+    "codice_regione": 3,
+    "denominazione_regione": "Lombardia",
+    "codice_provincia": 15,
+    "denominazione_provincia": "Milano",
+    "sigla_provincia": "MI",
+    "popolazione": 3279944
+  },
+  {
+    "codice_regione": 8,
+    "denominazione_regione": "Emilia-Romagna",
+    "codice_provincia": 36,
+    "denominazione_provincia": "Modena",
+    "sigla_provincia": "MO",
+    "popolazione": 707292
+  },
+  {
+    "codice_regione": 3,
+    "denominazione_regione": "Lombardia",
+    "codice_provincia": 108,
+    "denominazione_provincia": "Monza e della Brianza",
+    "sigla_provincia": "MB",
+    "popolazione": 878267
+  },
+  {
+    "codice_regione": 1,
+    "denominazione_regione": "Piemonte",
+    "codice_provincia": 3,
+    "denominazione_provincia": "Novara",
+    "sigla_provincia": "NO",
+    "popolazione": 368040
+  },
+  {
+    "codice_regione": 20,
+    "denominazione_regione": "Sardegna",
+    "codice_provincia": 91,
+    "denominazione_provincia": "Nuoro",
+    "sigla_provincia": "NU",
+    "popolazione": 206843
+  },
+  {
+    "codice_regione": 20,
+    "denominazione_regione": "Sardegna",
+    "codice_provincia": 95,
+    "denominazione_provincia": "Oristano",
+    "sigla_provincia": "OR",
+    "popolazione": 156078
+  },
+  {
+    "codice_regione": 5,
+    "denominazione_regione": "Veneto",
+    "codice_provincia": 28,
+    "denominazione_provincia": "Padova",
+    "sigla_provincia": "PD",
+    "popolazione": 939672
+  },
+  {
+    "codice_regione": 19,
+    "denominazione_regione": "Sicilia",
+    "codice_provincia": 82,
+    "denominazione_provincia": "Palermo",
+    "sigla_provincia": "PA",
+    "popolazione": 1243328
+  },
+  {
+    "codice_regione": 8,
+    "denominazione_regione": "Emilia-Romagna",
+    "codice_provincia": 34,
+    "denominazione_provincia": "Parma",
+    "sigla_provincia": "PR",
+    "popolazione": 453930
+  },
+  {
+    "codice_regione": 3,
+    "denominazione_regione": "Lombardia",
+    "codice_provincia": 18,
+    "denominazione_provincia": "Pavia",
+    "sigla_provincia": "PV",
+    "popolazione": 546515
+  },
+  {
+    "codice_regione": 10,
+    "denominazione_regione": "Umbria",
+    "codice_provincia": 54,
+    "denominazione_provincia": "Perugia",
+    "sigla_provincia": "PG",
+    "popolazione": 655403
+  },
+  {
+    "codice_regione": 11,
+    "denominazione_regione": "Marche",
+    "codice_provincia": 41,
+    "denominazione_provincia": "Pesaro e Urbino",
+    "sigla_provincia": "PU",
+    "popolazione": 357137
+  },
+  {
+    "codice_regione": 13,
+    "denominazione_regione": "Abruzzo",
+    "codice_provincia": 68,
+    "denominazione_provincia": "Pescara",
+    "sigla_provincia": "PE",
+    "popolazione": 318678
+  },
+  {
+    "codice_regione": 8,
+    "denominazione_regione": "Emilia-Romagna",
+    "codice_provincia": 33,
+    "denominazione_provincia": "Piacenza",
+    "sigla_provincia": "PC",
+    "popolazione": 287236
+  },
+  {
+    "codice_regione": 9,
+    "denominazione_regione": "Toscana",
+    "codice_provincia": 50,
+    "denominazione_provincia": "Pisa",
+    "sigla_provincia": "PI",
+    "popolazione": 422310
+  },
+  {
+    "codice_regione": 9,
+    "denominazione_regione": "Toscana",
+    "codice_provincia": 47,
+    "denominazione_provincia": "Pistoia",
+    "sigla_provincia": "PT",
+    "popolazione": 293059
+  },
+  {
+    "codice_regione": 6,
+    "denominazione_regione": "Friuli Venezia Giulia",
+    "codice_provincia": 93,
+    "denominazione_provincia": "Pordenone",
+    "sigla_provincia": "PN",
+    "popolazione": 312619
+  },
+  {
+    "codice_regione": 17,
+    "denominazione_regione": "Basilicata",
+    "codice_provincia": 76,
+    "denominazione_provincia": "Potenza",
+    "sigla_provincia": "PZ",
+    "popolazione": 360936
+  },
+  {
+    "codice_regione": 9,
+    "denominazione_regione": "Toscana",
+    "codice_provincia": 100,
+    "denominazione_provincia": "Prato",
+    "sigla_provincia": "PO",
+    "popolazione": 258152
+  },
+  {
+    "codice_regione": 19,
+    "denominazione_regione": "Sicilia",
+    "codice_provincia": 88,
+    "denominazione_provincia": "Ragusa",
+    "sigla_provincia": "RG",
+    "popolazione": 321215
+  },
+  {
+    "codice_regione": 8,
+    "denominazione_regione": "Emilia-Romagna",
+    "codice_provincia": 39,
+    "denominazione_provincia": "Ravenna",
+    "sigla_provincia": "RA",
+    "popolazione": 389634
+  },
+  {
+    "codice_regione": 18,
+    "denominazione_regione": "Calabria",
+    "codice_provincia": 80,
+    "denominazione_provincia": "Reggio di Calabria",
+    "sigla_provincia": "RC",
+    "popolazione": 541278
+  },
+  {
+    "codice_regione": 8,
+    "denominazione_regione": "Emilia-Romagna",
+    "codice_provincia": 35,
+    "denominazione_provincia": "Reggio nell'Emilia",
+    "sigla_provincia": "RE",
+    "popolazione": 531751
+  },
+  {
+    "codice_regione": 12,
+    "denominazione_regione": "Lazio",
+    "codice_provincia": 57,
+    "denominazione_provincia": "Rieti",
+    "sigla_provincia": "RI",
+    "popolazione": 154232
+  },
+  {
+    "codice_regione": 8,
+    "denominazione_regione": "Emilia-Romagna",
+    "codice_provincia": 99,
+    "denominazione_provincia": "Rimini",
+    "sigla_provincia": "RN",
+    "popolazione": 339796
+  },
+  {
+    "codice_regione": 12,
+    "denominazione_regione": "Lazio",
+    "codice_provincia": 58,
+    "denominazione_provincia": "Roma",
+    "sigla_provincia": "RM",
+    "popolazione": 4333274
+  },
+  {
+    "codice_regione": 5,
+    "denominazione_regione": "Veneto",
+    "codice_provincia": 29,
+    "denominazione_provincia": "Rovigo",
+    "sigla_provincia": "RO",
+    "popolazione": 233386
+  },
+  {
+    "codice_regione": 15,
+    "denominazione_regione": "Campania",
+    "codice_provincia": 65,
+    "denominazione_provincia": "Salerno",
+    "sigla_provincia": "SA",
+    "popolazione": 1092779
+  },
+  {
+    "codice_regione": 20,
+    "denominazione_regione": "Sardegna",
+    "codice_provincia": 90,
+    "denominazione_provincia": "Sassari",
+    "sigla_provincia": "SS",
+    "popolazione": 489634
+  },
+  {
+    "codice_regione": 7,
+    "denominazione_regione": "Liguria",
+    "codice_provincia": 9,
+    "denominazione_provincia": "Savona",
+    "sigla_provincia": "SV",
+    "popolazione": 274183
+  },
+  {
+    "codice_regione": 9,
+    "denominazione_regione": "Toscana",
+    "codice_provincia": 52,
+    "denominazione_provincia": "Siena",
+    "sigla_provincia": "SI",
+    "popolazione": 266238
+  },
+  {
+    "codice_regione": 19,
+    "denominazione_regione": "Sicilia",
+    "codice_provincia": 89,
+    "denominazione_provincia": "Siracusa",
+    "sigla_provincia": "SR",
+    "popolazione": 397037
+  },
+  {
+    "codice_regione": 3,
+    "denominazione_regione": "Lombardia",
+    "codice_provincia": 14,
+    "denominazione_provincia": "Sondrio",
+    "sigla_provincia": "SO",
+    "popolazione": 180941
+  },
+  {
+    "codice_regione": 20,
+    "denominazione_regione": "Sardegna",
+    "codice_provincia": 111,
+    "denominazione_provincia": "Sud Sardegna",
+    "sigla_provincia": "SU",
+    "popolazione": 347005
+  },
+  {
+    "codice_regione": 16,
+    "denominazione_regione": "Puglia",
+    "codice_provincia": 73,
+    "denominazione_provincia": "Taranto",
+    "sigla_provincia": "TA",
+    "popolazione": 572772
+  },
+  {
+    "codice_regione": 13,
+    "denominazione_regione": "Abruzzo",
+    "codice_provincia": 67,
+    "denominazione_provincia": "Teramo",
+    "sigla_provincia": "TE",
+    "popolazione": 307412
+  },
+  {
+    "codice_regione": 10,
+    "denominazione_regione": "Umbria",
+    "codice_provincia": 55,
+    "denominazione_provincia": "Terni",
+    "sigla_provincia": "TR",
+    "popolazione": 224882
+  },
+  {
+    "codice_regione": 1,
+    "denominazione_regione": "Piemonte",
+    "codice_provincia": 1,
+    "denominazione_provincia": "Torino",
+    "sigla_provincia": "TO",
+    "popolazione": 2252379
+  },
+  {
+    "codice_regione": 19,
+    "denominazione_regione": "Sicilia",
+    "codice_provincia": 81,
+    "denominazione_provincia": "Trapani",
+    "sigla_provincia": "TP",
+    "popolazione": 428377
+  },
+  {
+    "codice_regione": 22,
+    "denominazione_regione": "P.A. Trento",
+    "codice_provincia": 22,
+    "denominazione_provincia": "Trento",
+    "sigla_provincia": "TN",
+    "popolazione": 542739
+  },
+  {
+    "codice_regione": 5,
+    "denominazione_regione": "Veneto",
+    "codice_provincia": 26,
+    "denominazione_provincia": "Treviso",
+    "sigla_provincia": "TV",
+    "popolazione": 888309
+  },
+  {
+    "codice_regione": 6,
+    "denominazione_regione": "Friuli Venezia Giulia",
+    "codice_provincia": 32,
+    "denominazione_provincia": "Trieste",
+    "sigla_provincia": "TS",
+    "popolazione": 233276
+  },
+  {
+    "codice_regione": 6,
+    "denominazione_regione": "Friuli Venezia Giulia",
+    "codice_provincia": 30,
+    "denominazione_provincia": "Udine",
+    "sigla_provincia": "UD",
+    "popolazione": 526256
+  },
+  {
+    "codice_regione": 3,
+    "denominazione_regione": "Lombardia",
+    "codice_provincia": 12,
+    "denominazione_provincia": "Varese",
+    "sigla_provincia": "VA",
+    "popolazione": 892532
+  },
+  {
+    "codice_regione": 5,
+    "denominazione_regione": "Veneto",
+    "codice_provincia": 27,
+    "denominazione_provincia": "Venezia",
+    "sigla_provincia": "VE",
+    "popolazione": 851663
+  },
+  {
+    "codice_regione": 1,
+    "denominazione_regione": "Piemonte",
+    "codice_provincia": 103,
+    "denominazione_provincia": "Verbano-Cusio-Ossola",
+    "sigla_provincia": "VB",
+    "popolazione": 157455
+  },
+  {
+    "codice_regione": 1,
+    "denominazione_regione": "Piemonte",
+    "codice_provincia": 2,
+    "denominazione_provincia": "Vercelli",
+    "sigla_provincia": "VC",
+    "popolazione": 170296
+  },
+  {
+    "codice_regione": 5,
+    "denominazione_regione": "Veneto",
+    "codice_provincia": 23,
+    "denominazione_provincia": "Verona",
+    "sigla_provincia": "VR",
+    "popolazione": 930339
+  },
+  {
+    "codice_regione": 18,
+    "denominazione_regione": "Calabria",
+    "codice_provincia": 102,
+    "denominazione_provincia": "Vibo Valentia",
+    "sigla_provincia": "VV",
+    "popolazione": 157469
+  },
+  {
+    "codice_regione": 5,
+    "denominazione_regione": "Veneto",
+    "codice_provincia": 24,
+    "denominazione_provincia": "Vicenza",
+    "sigla_provincia": "VI",
+    "popolazione": 862363
+  },
+  {
+    "codice_regione": 12,
+    "denominazione_regione": "Lazio",
+    "codice_provincia": 56,
+    "denominazione_provincia": "Viterbo",
+    "sigla_provincia": "VT",
+    "popolazione": 316142
+  }
+]

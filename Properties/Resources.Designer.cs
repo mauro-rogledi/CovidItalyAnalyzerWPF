@@ -59,5 +59,286 @@ namespace WPFCovidItalyAnalizer.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to al.
+        /// </summary>
+        internal static string And {
+            get {
+                return ResourceManager.GetString("And", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to dal.
+        /// </summary>
+        internal static string BetweenDate {
+            get {
+                return ResourceManager.GetString("BetweenDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Casi per 100.000 abitanti.
+        /// </summary>
+        internal static string CasePerinhabitants {
+            get {
+                return ResourceManager.GetString("CasePerinhabitants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Casi.
+        /// </summary>
+        internal static string Cases {
+            get {
+                return ResourceManager.GetString("Cases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Casi giornalieri.
+        /// </summary>
+        internal static string DailyCases {
+            get {
+                return ResourceManager.GetString("DailyCases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rapporto giornaliero casi e tamponi.
+        /// </summary>
+        internal static string DailyCasesSwabs {
+            get {
+                return ResourceManager.GetString("DailyCasesSwabs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deceduti giornalieri.
+        /// </summary>
+        internal static string DailyDeads {
+            get {
+                return ResourceManager.GetString("DailyDeads", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tamponi giornalieri.
+        /// </summary>
+        internal static string DailySwabs {
+            get {
+                return ResourceManager.GetString("DailySwabs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Morti.
+        /// </summary>
+        internal static string Deads {
+            get {
+                return ResourceManager.GetString("Deads", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deceduti totali nell&apos;intervallo.
+        /// </summary>
+        internal static string DeadsInRange {
+            get {
+                return ResourceManager.GetString("DeadsInRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deceduti per 100.000 abitanti.
+        /// </summary>
+        internal static string DeadsPerinhabitants {
+            get {
+                return ResourceManager.GetString("DeadsPerinhabitants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dati scaricati.
+        /// </summary>
+        internal static string DownloadedData {
+            get {
+                return ResourceManager.GetString("DownloadedData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scaricamento dati.
+        /// </summary>
+        internal static string DownloadingData {
+            get {
+                return ResourceManager.GetString("DownloadingData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attenzione è presente un conflitto nei dati.
+        /// </summary>
+        internal static string GitConflict {
+            get {
+                return ResourceManager.GetString("GitConflict", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I dati sono ora aggiornati.
+        /// </summary>
+        internal static string GitFastForward {
+            get {
+                return ResourceManager.GetString("GitFastForward", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I dati sono già aggiornati.
+        /// </summary>
+        internal static string GitUpToDate {
+            get {
+                return ResourceManager.GetString("GitUpToDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ospedalizzati.
+        /// </summary>
+        internal static string Hospital {
+            get {
+                return ResourceManager.GetString("Hospital", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Terapia intensiva.
+        /// </summary>
+        internal static string IntensiveCare {
+            get {
+                return ResourceManager.GetString("IntensiveCare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nuovi casi.
+        /// </summary>
+        internal static string NewCases {
+            get {
+                return ResourceManager.GetString("NewCases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nuovi casi nell&apos;intervallo.
+        /// </summary>
+        internal static string NewCasesInRange {
+            get {
+                return ResourceManager.GetString("NewCasesInRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] PopolazioneProvince {
+            get {
+                object obj = ResourceManager.GetObject("PopolazioneProvince", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] PopolazioneRegioni {
+            get {
+                object obj = ResourceManager.GetObject("PopolazioneRegioni", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rapporto casi / tamponi.
+        /// </summary>
+        internal static string RelationshipCasesSwabs {
+            get {
+                return ResourceManager.GetString("RelationshipCasesSwabs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tamponi.
+        /// </summary>
+        internal static string Swabs {
+            get {
+                return ResourceManager.GetString("Swabs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tamponi totali nell&apos;intervallo.
+        /// </summary>
+        internal static string SwabsInRange {
+            get {
+                return ResourceManager.GetString("SwabsInRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tamponi per 100.000 abitanti.
+        /// </summary>
+        internal static string SwabsPerinhabitants {
+            get {
+                return ResourceManager.GetString("SwabsPerinhabitants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Casi totali.
+        /// </summary>
+        internal static string TotalCases {
+            get {
+                return ResourceManager.GetString("TotalCases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Casi settimanali.
+        /// </summary>
+        internal static string WeeklyCases {
+            get {
+                return ResourceManager.GetString("WeeklyCases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Totale settimanale casi e tamponi.
+        /// </summary>
+        internal static string WeeklyCasesSwabs {
+            get {
+                return ResourceManager.GetString("WeeklyCasesSwabs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Totale settimanale morti.
+        /// </summary>
+        internal static string WeeklyDeads {
+            get {
+                return ResourceManager.GetString("WeeklyDeads", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Totale settimanale tamponi.
+        /// </summary>
+        internal static string WeeklySwabs {
+            get {
+                return ResourceManager.GetString("WeeklySwabs", resourceCulture);
+            }
+        }
     }
 }

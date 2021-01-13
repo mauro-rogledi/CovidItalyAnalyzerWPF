@@ -10,6 +10,7 @@
         Title="MainWindow" Height="600" Width="800">
     <Window.Resources>
         <vm:MenuVM x:Key="vmMenu"/>
+
         <SolidColorBrush x:Key="BackgroundBarColor" Color="#FF2B579A"/>
         <SolidColorBrush x:Key="MouseOverButtonColor" Color="#FF124078"/>
         <SolidColorBrush x:Key="SelectedButtonColor" Color="#FF002050"/>
@@ -123,7 +124,7 @@
             <Label></Label>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.RowSpan="2">
-            <uc:CartesianChartRegionControl Visibility="{Binding RegionVisible}"></uc:CartesianChartRegionControl>
+            <uc:CartesianChartRegionControl x:Name="CartesianRegion" Visibility="{Binding RegionVisible}"></uc:CartesianChartRegionControl>
         </StackPanel>
     </Grid>
 </Window>

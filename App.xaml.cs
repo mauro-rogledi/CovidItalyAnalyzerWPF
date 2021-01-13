@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using CovidItaWPFCovidItalyAnalizerlyAnalyzer.Library;
+
 using System.Windows;
 
 using WPFCovidItalyAnalizer.Library;
@@ -17,7 +13,12 @@ namespace WPFCovidItalyAnalizer
     {
         public App()
         {
+        }
+
+        private async void App_Startup(object sender, StartupEventArgs e)
+        {
             SettingManager.ReadData();
+            await DataReader.ReadData();
         }
     }
 }

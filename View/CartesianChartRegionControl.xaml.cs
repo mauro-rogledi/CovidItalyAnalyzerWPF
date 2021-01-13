@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using WPFCovidItalyAnalizer.ViewModel;
+
 namespace WPFCovidItalyAnalizer.View
 {
     /// <summary>
@@ -20,9 +22,17 @@ namespace WPFCovidItalyAnalizer.View
     /// </summary>
     public partial class CartesianChartRegionControl : UserControl
     {
+        CartesianRegionVM viewModel;
+
         public CartesianChartRegionControl()
         {
             InitializeComponent();
+            viewModel = Resources["VM"] as CartesianRegionVM;
+        }
+
+        public void Refresh()
+        {
+            viewModel.Refresh();
         }
     }
 }

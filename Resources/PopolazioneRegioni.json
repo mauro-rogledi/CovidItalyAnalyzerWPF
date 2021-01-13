@@ -1,0 +1,107 @@
+[
+  {
+    "codice_regione": 13,
+    "denominazione_regione": "Abruzzo",
+    "popolazione": 1305770
+  },
+  {
+    "codice_regione": 17,
+    "denominazione_regione": "Basilicata",
+    "popolazione": 556934
+  },
+  {
+    "codice_regione": 18,
+    "denominazione_regione": "Calabria",
+    "popolazione": 1924701
+  },
+  {
+    "codice_regione": 15,
+    "denominazione_regione": "Campania",
+    "popolazione": 5785861
+  },
+  {
+    "codice_regione": 8,
+    "denominazione_regione": "Emilia-Romagna",
+    "popolazione": 4467118
+  },
+  {
+    "codice_regione": 6,
+    "denominazione_regione": "Friuli Venezia Giulia",
+    "popolazione": 1211357
+  },
+  {
+    "codice_regione": 12,
+    "denominazione_regione": "Lazio",
+    "popolazione": 5865544
+  },
+  {
+    "codice_regione": 7,
+    "denominazione_regione": "Liguria",
+    "popolazione": 1543127
+  },
+  {
+    "codice_regione": 3,
+    "denominazione_regione": "Lombardia",
+    "popolazione": 10103969
+  },
+  {
+    "codice_regione": 11,
+    "denominazione_regione": "Marche",
+    "popolazione": 1518400
+  },
+  {
+    "codice_regione": 14,
+    "denominazione_regione": "Molise",
+    "popolazione": 302265
+  },
+  {
+    "codice_regione": 21,
+    "denominazione_regione": "P.A. Bolzano",
+    "popolazione": 532080
+  },
+  {
+    "codice_regione": 22,
+    "denominazione_regione": "P.A. Trento",
+    "popolazione": 542739
+  },
+  {
+    "codice_regione": 1,
+    "denominazione_regione": "Piemonte",
+    "popolazione": 4341375
+  },
+  {
+    "codice_regione": 16,
+    "denominazione_regione": "Puglia",
+    "popolazione": 4008296
+  },
+  {
+    "codice_regione": 20,
+    "denominazione_regione": "Sardegna",
+    "popolazione": 1630474
+  },
+  {
+    "codice_regione": 19,
+    "denominazione_regione": "Sicilia",
+    "popolazione": 4968410
+  },
+  {
+    "codice_regione": 9,
+    "denominazione_regione": "Toscana",
+    "popolazione": 3722729
+  },
+  {
+    "codice_regione": 10,
+    "denominazione_regione": "Umbria",
+    "popolazione": 880285
+  },
+  {
+    "codice_regione": 2,
+    "denominazione_regione": "Valle d'Aosta",
+    "popolazione": 125501
+  },
+  {
+    "codice_regione": 5,
+    "denominazione_regione": "Veneto",
+    "popolazione": 4907704
+  }
+]

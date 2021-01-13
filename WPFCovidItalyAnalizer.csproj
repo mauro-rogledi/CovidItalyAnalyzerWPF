@@ -85,10 +85,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Library\CartesianChartRegionManager.cs" />
+    <Compile Include="Library\DataExtractorRegion.cs" />
+    <Compile Include="Library\DataReader.cs" />
+    <Compile Include="Library\DataReaderCounty.cs" />
+    <Compile Include="Library\DataReaderPeople.cs" />
+    <Compile Include="Library\DataReaderRegion.cs" />
+    <Compile Include="Library\GitFilePicker.cs" />
     <Compile Include="Library\SettingManager.cs" />
+    <Compile Include="Model\ComboRegionData.cs" />
+    <Compile Include="Model\CountyData.cs" />
+    <Compile Include="Model\ItalySubdivision.cs" />
+    <Compile Include="Model\PeopleCountyData.cs" />
     <Compile Include="Model\RegionData.cs" />
     <Compile Include="Model\SettingsData.cs" />
     <Compile Include="ViewModel\BaseVM.cs" />
+    <Compile Include="ViewModel\CartesianRegionVM.cs" />
     <Compile Include="ViewModel\MenuVM.cs" />
     <Compile Include="ViewModel\SettingVM.cs" />
     <Compile Include="View\CartesianChartRegionControl.xaml.cs">
@@ -141,6 +153,8 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Resources\PopolazioneProvince.json" />
+    <None Include="Resources\PopolazioneRegioni.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
