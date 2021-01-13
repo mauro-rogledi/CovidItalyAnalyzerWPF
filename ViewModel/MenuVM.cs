@@ -11,11 +11,10 @@ using System.Windows.Media;
 
 namespace WPFCovidItalyAnalizer.ViewModel
 {
-    public class MenuVM : INotifyPropertyChanged
+    public class MenuVM : BaseVM, INotifyPropertyChanged
     {
         readonly Brush background = new SolidColorBrush(Color.FromArgb(255, 43, 87, 154));
         readonly Brush selected = new SolidColorBrush(Color.FromArgb(255, 0, 32, 80));
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private Visibility regionVisible = Visibility.Collapsed;
 
@@ -70,38 +69,6 @@ namespace WPFCovidItalyAnalizer.ViewModel
                     CountySelected = false;
                 }
             }
-        }
-
-        internal void Select(string name)
-        {
-            switch(name)
-            {
-                case "Region":
-                    RegionVisible = Visibility.Visible;
-                    break;
-                case "County":
-                    RegionVisible = Visibility.Collapsed;
-                    break;
-                case "Italy":
-                    RegionVisible = Visibility.Collapsed;
-                    break;
-            }
-        }
-
-        private void SetValue<T>(ref T field, T newValue, [CallerMemberName] string propertyName = "")
-        {
-
-            if (object.Equals(field, newValue) == false)
-            {
-                field = newValue;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-        private void OnPropertyChanged([CallerMemberName] string v = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(v));
         }
 
         public MenuVM()

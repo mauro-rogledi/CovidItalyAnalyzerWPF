@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using WPFCovidItalyAnalizer.View;
 using WPFCovidItalyAnalizer.ViewModel;
 
 namespace WPFCovidItalyAnalizer
@@ -31,10 +32,14 @@ namespace WPFCovidItalyAnalizer
             menuVM = Resources["vmMenu"] as MenuVM;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Setting_Click(object sender, RoutedEventArgs e)
         {
-            ToggleButton ctrl = sender as ToggleButton;
-            menuVM.Select(ctrl.Name);
+            var settingWindow = new SettingWindow();
+            if (settingWindow.ShowDialog()??false)
+            {
+
+            }
+
         }
     }
 }
