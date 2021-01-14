@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:WPFCovidItalyAnalizer"
         xmlns:vm="clr-namespace:WPFCovidItalyAnalizer.ViewModel"
         xmlns:uc="clr-namespace:WPFCovidItalyAnalizer.View"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        gif:ImageBehavior.AnimateInDesignMode="True"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
     <Window.Resources>
@@ -48,7 +50,7 @@
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
-            </Setter>            
+            </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="{StaticResource MouseOverButtonColor}"/>
@@ -96,7 +98,7 @@
     <Grid DataContext="{StaticResource vmMenu}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -114,17 +116,18 @@
             <ToggleButton  Style="{StaticResource toggle}" Content="Comuni" IsChecked="{Binding CountySelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <ToggleButton  Style="{StaticResource toggle}" Content="Italia" IsChecked="{Binding ItalySelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
+        <Image Grid.Column="1" Grid.RowSpan="2"
+               x:Name="myGif" 
+               Width="100" Height="100"
+               Visibility="Collapsed"
+               gif:ImageBehavior.AnimatedSource="Spinner-1s-100px.gif"/>
         <StackPanel Grid.Row="1" Background="{StaticResource BackgroundBarColor}">
-            <!--<Separator Margin="10,5" 
-                       Foreground="blue"
-                       Background="red">
-            </Separator>-->
-            <Button Content="Aggiorna"></Button>
+            <Button Content="Aggiorna" Click="Refresh_Click"></Button>
             <Button Content="Opzioni" Click="Setting_Click"></Button>
             <Label></Label>
         </StackPanel>
-        <StackPanel Grid.Column="1" Grid.RowSpan="2">
-            <uc:CartesianChartRegionControl x:Name="CartesianRegion" Visibility="{Binding RegionVisible}"></uc:CartesianChartRegionControl>
-        </StackPanel>
+        <uc:CartesianChartRegionControl x:Name="CartesianRegion" Visibility="{Binding RegionVisible}"
+                                            Grid.Column="1" Grid.RowSpan="2"
+                                            ></uc:CartesianChartRegionControl>
     </Grid>
 </Window>

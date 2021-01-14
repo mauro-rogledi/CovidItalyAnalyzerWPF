@@ -40,14 +40,34 @@ namespace WPFCovidItalyAnalizer
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             SettingManager.ReadData();
-            await DataReader.ReadData();
+
+            await LoadData();
 
             CartesianRegion.Refresh();
+        }
+
+        private async Task LoadData(bool isRefresh = false)
+        {
+            myGif.Visibility = Visibility.Visible;
+            await Task.Run(async () =>
+            {
+                if (isRefresh)
+                    await DataReader.RefreshData();
+                else
+                    await DataReader.RefreshData();
+            });
+
+            myGif.Visibility = Visibility.Collapsed;
         }
 
         private void Setting_Click(object sender, RoutedEventArgs e)
         {
             new SettingWindow().ShowDialog();
+        }
+
+        private async void Refresh_Click(object sender, RoutedEventArgs e)
+        {
+            await LoadData(true);
         }
     }
 }

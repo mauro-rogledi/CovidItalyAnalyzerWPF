@@ -7,16 +7,13 @@
              xmlns:vm="clr-namespace:WPFCovidItalyAnalizer.ViewModel"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Resources>
-        <vm:CartesianRegionVM x:Key="VM"/>
-    </UserControl.Resources>
-    <Grid DataContext="{StaticResource VM}">
+             d:DesignHeight="450" d:DesignWidth="800" d:DataContext="{d:DesignInstance local:CartesianChartRegionControl}">
+    <Grid DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType=UserControl}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Background="#FFF3F3F3">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#FFF3F3F3">
             <Label Content="Regione"
                    FontSize="14"
                    Margin="5"/>
@@ -39,8 +36,10 @@
                       Width="260"
                       FontSize="14"></ComboBox>
         </StackPanel>
-        <lvc:CartesianChart Grid.Row="1">
-            </lvc:CartesianChart>
+        <lvc:CartesianChart x:Name="CartesianChart" Grid.Row="1" 
+                            FontSize="18"
+                            FontWeight="Bold">
+        </lvc:CartesianChart>
     </Grid>
 
 </UserControl>
