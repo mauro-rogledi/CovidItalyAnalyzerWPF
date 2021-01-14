@@ -24,6 +24,15 @@ namespace WPFCovidItalyAnalizer.ViewModel
             set { SetValue<Visibility>(ref regionVisible, value); }
         }
 
+        private Visibility italyVisible = Visibility.Collapsed;
+
+        public Visibility ItalyVisible
+        {
+            get { return italyVisible; }
+            set { SetValue<Visibility>(ref italyVisible, value);  }
+        }
+
+
         private bool regionSelected;
 
         public bool RegionSelected
@@ -36,6 +45,7 @@ namespace WPFCovidItalyAnalizer.ViewModel
                     CountySelected = false;
                     ItalySelected = false;
                     RegionVisible = Visibility.Visible;
+                    ItalyVisible = Visibility.Collapsed;
                 }
             }
         }
@@ -52,6 +62,7 @@ namespace WPFCovidItalyAnalizer.ViewModel
                     RegionSelected = false;
                     ItalySelected = false;
                     RegionVisible = Visibility.Collapsed;
+                    ItalyVisible = Visibility.Collapsed;
                 }
             }
         }
@@ -67,6 +78,8 @@ namespace WPFCovidItalyAnalizer.ViewModel
                 {
                     RegionSelected = false;
                     CountySelected = false;
+                    ItalyVisible = Visibility.Visible;
+                    RegionVisible = Visibility.Collapsed;
                 }
             }
         }

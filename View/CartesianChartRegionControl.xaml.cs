@@ -14,14 +14,14 @@ namespace WPFCovidItalyAnalizer.View
     /// </summary>
     public partial class CartesianChartRegionControl : UserControl
     {
-        public ObservableCollection<ComboRegionData> RegionDatas { get; set; }
+        public ObservableCollection<Model.ComboData> RegionDatas { get; set; }
         public ObservableCollection<string> ChartDatas { get; set; }
 
         public SeriesCollection SeriesViews { get; set; }
 
-        private ComboRegionData regionSelected;
+        private Model.ComboData regionSelected;
 
-        public ComboRegionData RegionSelected
+        public Model.ComboData RegionSelected
         {
             get { return regionSelected; }
             set
@@ -48,9 +48,8 @@ namespace WPFCovidItalyAnalizer.View
         public CartesianChartRegionControl()
         {
             InitializeComponent();
-            //DataContext = this;
 
-            RegionDatas = new ObservableCollection<ComboRegionData>();
+            RegionDatas = new ObservableCollection<Model.ComboData>();
             ChartDatas = new ObservableCollection<string>();
 
             chartManager = new CartesianChartRegionManager(CartesianChart)
@@ -64,7 +63,7 @@ namespace WPFCovidItalyAnalizer.View
         public void Refresh()
         {
             DataReaderRegion.ReadRegions()
-            .Select(r => new ComboRegionData() { value = r.codice_regione, display = r.denominazione_regione })
+            .Select(r => new ComboData() { value = r.codice_regione, display = r.denominazione_regione })
             .ToList()
             .ForEach((e) =>
             {

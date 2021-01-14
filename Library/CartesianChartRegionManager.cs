@@ -19,7 +19,7 @@ namespace WPFCovidItalyAnalizer.Library
         private DayOfWeek myFirstDOW;
         private readonly CartesianChart chart;
 
-        public Func<ComboRegionData> Region { get; set; }
+        public Func<Model.ComboData> Region { get; set; }
 
         private readonly Dictionary<string, Action<int, string>> ChartAvailable = new Dictionary<string, Action<int, string>>();
 

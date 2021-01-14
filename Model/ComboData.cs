@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPFCovidItalyAnalizer.Model
 {
-    public class ComboRegionData
+    public class ComboData
     {
         public int value { get; set; }
         public string display { get; set; }

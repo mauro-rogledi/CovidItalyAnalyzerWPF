@@ -96,7 +96,7 @@
     <Compile Include="Library\DataReaderRegion.cs" />
     <Compile Include="Library\GitFilePicker.cs" />
     <Compile Include="Library\SettingManager.cs" />
-    <Compile Include="Model\ComboRegionData.cs" />
+    <Compile Include="Model\ComboData.cs" />
     <Compile Include="Model\CountyData.cs" />
     <Compile Include="Model\ItalySubdivision.cs" />
     <Compile Include="Model\PeopleCountyData.cs" />
@@ -108,6 +108,9 @@
     <Compile Include="ViewModel\SettingVM.cs" />
     <Compile Include="View\CartesianChartRegionControl.xaml.cs">
       <DependentUpon>CartesianChartRegionControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PieChartItalyControl.xaml.cs">
+      <DependentUpon>PieChartItalyControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SettingWindow.xaml.cs">
       <DependentUpon>SettingWindow.xaml</DependentUpon>
@@ -125,6 +128,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\CartesianChartRegionControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PieChartItalyControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

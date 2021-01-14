@@ -129,5 +129,8 @@
         <uc:CartesianChartRegionControl x:Name="CartesianRegion" Visibility="{Binding RegionVisible}"
                                             Grid.Column="1" Grid.RowSpan="2"
                                             ></uc:CartesianChartRegionControl>
+        <uc:PieChartItalyControl x:Name="PieChartItaly" Visibility="{Binding ItalyVisible}"
+                                            Grid.Column="1" Grid.RowSpan="2"
+                                            ></uc:PieChartItalyControl>        
     </Grid>
 </Window>

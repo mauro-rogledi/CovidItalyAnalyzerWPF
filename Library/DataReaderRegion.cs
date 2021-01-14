@@ -8,12 +8,6 @@ using System.Threading.Tasks;
 
 namespace WPFCovidItalyAnalizer.Library
 {
-    public class ComboData
-    {
-        public int value { get; set; }
-        public string display { get; set; }
-    }
-
     public static class DataReaderRegion
     {
         private static List<RegionData> RegionDatas;
