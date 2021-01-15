@@ -132,6 +132,10 @@
                                             ></uc:CartesianChartRegionControl>
         <uc:PieChartItalyControl x:Name="PieChartItaly" Visibility="{Binding ItalyVisible}"
                                             Grid.Column="1" Grid.RowSpan="2"
-                                            ></uc:PieChartItalyControl>        
+                                            ></uc:PieChartItalyControl>
+
+        <uc:CartesianChartCountyControl x:Name="CartesianCounty" Visibility="{Binding CountyVisible}"
+                                            Grid.Column="1" Grid.RowSpan="2"
+                                            ></uc:CartesianChartCountyControl>
     </Grid>
 </Window>

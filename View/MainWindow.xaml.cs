@@ -45,6 +45,7 @@ namespace WPFCovidItalyAnalizer
 
             CartesianRegion.Refresh();
             PieChartItaly.Refresh();
+            CartesianCounty.Refresh();
         }
 
         private async Task LoadData(bool isRefresh = false)

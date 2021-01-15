@@ -129,8 +129,14 @@
   <data name="Cases" xml:space="preserve">
     <value>Casi</value>
   </data>
-  <data name="County" xml:space="preserve">
+  <data name="Chart" xml:space="preserve">
+    <value>Grafico</value>
+  </data>
+  <data name="Counties" xml:space="preserve">
     <value>Comuni</value>
+  </data>
+  <data name="County" xml:space="preserve">
+    <value>Comune</value>
   </data>
   <data name="DailyCases" xml:space="preserve">
     <value>Casi giornalieri</value>
@@ -183,6 +189,9 @@
   <data name="NewCasesInRange" xml:space="preserve">
     <value>Nuovi casi nell'intervallo</value>
   </data>
+  <data name="Region" xml:space="preserve">
+    <value>Regione</value>
+  </data>
   <data name="Regions" xml:space="preserve">
     <value>Regioni</value>
   </data>
@@ -200,6 +209,9 @@
   </data>
   <data name="SwabsPerinhabitants" xml:space="preserve">
     <value>Tamponi per 100.000 abitanti</value>
+  </data>
+  <data name="Top" xml:space="preserve">
+    <value>Max</value>
   </data>
   <data name="TotalCases" xml:space="preserve">
     <value>Casi totali</value>

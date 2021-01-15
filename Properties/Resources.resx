@@ -129,6 +129,12 @@
   <data name="Cases" xml:space="preserve">
     <value>Cases</value>
   </data>
+  <data name="Chart" xml:space="preserve">
+    <value>Chart</value>
+  </data>
+  <data name="Counties" xml:space="preserve">
+    <value>Counties</value>
+  </data>
   <data name="County" xml:space="preserve">
     <value>County</value>
   </data>
@@ -190,6 +196,9 @@
   <data name="PopolazioneRegioni" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PopolazioneRegioni.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
   <data name="Regions" xml:space="preserve">
     <value>Regions</value>
   </data>
@@ -207,6 +216,9 @@
   </data>
   <data name="SwabsPerinhabitants" xml:space="preserve">
     <value>Swabs per 100.000 inhabitants</value>
+  </data>
+  <data name="Top" xml:space="preserve">
+    <value>Top</value>
   </data>
   <data name="TotalCases" xml:space="preserve">
     <value>Total cases</value>

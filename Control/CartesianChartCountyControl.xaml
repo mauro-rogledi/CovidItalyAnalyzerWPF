@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="WPFCovidItalyAnalizer.Control.CartesianChartCountyControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFCovidItalyAnalizer.Control"
+             xmlns:prop="clr-namespace:WPFCovidItalyAnalizer.Properties"
+             mc:Ignorable="d" 
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             d:DesignHeight="450" d:DesignWidth="800" d:DataContext="{d:DesignInstance local:CartesianChartCountyControl}">
+    <Grid DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType=UserControl}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#FFF3F3F3">
+            <Label Content="{x:Static prop:Resources.Region}"
+                   FontSize="14"
+                   Margin="5"/>
+
+            <ComboBox ItemsSource="{Binding Path=RegionDatas }"
+                      SelectedValue="{Binding RegionSelected}"
+                      Width="160" FontSize="10" Margin="5">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding display}" FontSize="14"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <Label Content="{x:Static prop:Resources.County}"
+                   FontSize="14"
+                   Margin="5"/>
+
+            <ComboBox ItemsSource="{Binding CountyDatas}"
+                      SelectedValue="{Binding CountySelected}"
+                      Margin="5"
+                      Width="260"
+                      FontSize="14">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding display}" FontSize="14"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+
+            </ComboBox>
+
+            <Label Content="{x:Static prop:Resources.Chart}"
+                   FontSize="14" Margin="5"/>
+            <ComboBox ItemsSource="{Binding ChartDatas}"
+                      SelectedValue="{Binding ChartSelected}"
+                      Margin="5"
+                      Width="260"
+                      FontSize="14"></ComboBox>
+        </StackPanel>
+        <lvc:CartesianChart x:Name="CartesianChart" Grid.Row="1" 
+                            FontSize="18"
+                            FontWeight="Bold">
+        </lvc:CartesianChart>
+    </Grid>
+</UserControl>

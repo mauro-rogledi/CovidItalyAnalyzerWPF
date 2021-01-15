@@ -91,7 +91,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Control\CartesianChartCountyControl.xaml.cs">
+      <DependentUpon>CartesianChartCountyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Library\CartesianChartCountyManager.cs" />
     <Compile Include="Library\CartesianChartRegionManager.cs" />
+    <Compile Include="Library\DataExtractorCounty.cs" />
     <Compile Include="Library\DataExtractorRegion.cs" />
     <Compile Include="Library\DataReader.cs" />
     <Compile Include="Library\DataReaderCounty.cs" />
@@ -123,6 +128,10 @@
     <Compile Include="View\SettingWindow.xaml.cs">
       <DependentUpon>SettingWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Control\CartesianChartCountyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
