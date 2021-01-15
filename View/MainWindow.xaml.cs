@@ -44,6 +44,7 @@ namespace WPFCovidItalyAnalizer
             await LoadData();
 
             CartesianRegion.Refresh();
+            PieChartItaly.Refresh();
         }
 
         private async Task LoadData(bool isRefresh = false)
@@ -54,7 +55,7 @@ namespace WPFCovidItalyAnalizer
                 if (isRefresh)
                     await DataReader.RefreshData();
                 else
-                    await DataReader.RefreshData();
+                    await DataReader.ReadData();
             });
 
             myGif.Visibility = Visibility.Collapsed;

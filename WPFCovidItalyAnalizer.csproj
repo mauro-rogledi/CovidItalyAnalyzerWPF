@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons8-coronavirus-96.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>..\CovidItalyAnalyzer\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
@@ -95,6 +98,7 @@
     <Compile Include="Library\DataReaderPeople.cs" />
     <Compile Include="Library\DataReaderRegion.cs" />
     <Compile Include="Library\GitFilePicker.cs" />
+    <Compile Include="Library\PieChartItalyManager.cs" />
     <Compile Include="Library\SettingManager.cs" />
     <Compile Include="Model\ComboData.cs" />
     <Compile Include="Model\CountyData.cs" />
@@ -103,7 +107,6 @@
     <Compile Include="Model\RegionData.cs" />
     <Compile Include="Model\SettingsData.cs" />
     <Compile Include="ViewModel\BaseVM.cs" />
-    <Compile Include="ViewModel\CartesianRegionVM.cs" />
     <Compile Include="ViewModel\MenuVM.cs" />
     <Compile Include="ViewModel\SettingVM.cs" />
     <Compile Include="View\CartesianChartRegionControl.xaml.cs">
@@ -171,6 +174,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\Spinner-1s-100px.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8-coronavirus-96.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,37 +4,39 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFCovidItalyAnalizer.View"
-             mc:Ignorable="d" 
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             d:DesignHeight="450" d:DesignWidth="800" d:DataContext="{d:DesignInstance local:CartesianChartRegionControl}">
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500" 
+             d:DataContext="{d:DesignInstance local:PieChartItalyControl}">
+    
     <Grid DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType=UserControl}}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#FFF3F3F3">
             <Label Content="Dal"
                    FontSize="14"
                    Margin="5"/>
-            <DatePicker FontSize="14" Margin="5" />
+            <DatePicker FontSize="14" Margin="5" SelectedDate="{Binding DateFrom, StringFormat=dd/MM/yyyy}" />
             <Label Content="al"
                    FontSize="14"
                    Margin="5"/>
-            <DatePicker FontSize="14" Margin="5" />
+            <DatePicker FontSize="14" Margin="5" SelectedDate="{Binding DateTo, StringFormat=dd/MM/yyyy}"/>
             <Label Content="Grafico"
                    FontSize="14"
                    Margin="5"/>
             <ComboBox ItemsSource="{Binding ChartDatas}"
                       SelectedValue="{Binding ChartSelected}"
                       Margin="5"
-                      Width="260"
+                      Width="220"
                       FontSize="14"></ComboBox>
             <Label Content="Max"
                    FontSize="14"
                    Margin="5"/>
-            <ComboBox ItemsSource="{Binding Path=RegionDatas }"
-                      SelectedValue="{Binding RegionSelected}"
-                      Width="160" FontSize="10" Margin="5">
+            <ComboBox ItemsSource="{Binding Path=TopData }"
+                      SelectedValue="{Binding TopSelected}"
+                      Width="60" FontSize="10" Margin="5">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding display}" FontSize="14"/>

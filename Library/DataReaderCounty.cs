@@ -28,11 +28,12 @@ namespace WPFCovidItalyAnalizer.Library
 
         internal static  async Task RefreshData(bool keepACopy, string folderData)
         {
-            await ReadCountyDataFromWeb(keepACopy, file);
+            await ReadCountyDataFromWeb(keepACopy, folderData);
         }
 
         private static async Task ReadCountyDataFromWeb(bool keepACopy, string folderName)
         {
+            folder = folderName;
             var data = await GitFilePicker.GetFilesAsync(file);
             DeserializeData(data);
             if (keepACopy)
@@ -84,8 +85,6 @@ namespace WPFCovidItalyAnalizer.Library
             return italyCounties
                 .Where(r => r.codice_regione == region && r.sigla_provincia != null)
                 .OrderBy(o => o.denominazione_provincia);
-
-            //.Select(r => new  ComboData() { value = r.codice_regione, display =r.denominazione_regione }).ToArray();
         }
 
         internal static IOrderedEnumerable<ItalyCounty> ReadAllCounties()
@@ -93,8 +92,6 @@ namespace WPFCovidItalyAnalizer.Library
             return italyCounties
                 .Where(r => r.sigla_provincia != null)
                 .OrderBy(o => o.denominazione_provincia);
-
-            //.Select(r => new  ComboData() { value = r.codice_regione, display =r.denominazione_regione }).ToArray();
         }
 
         private static void ReadItalyCounties(List<CountyData> allData)
