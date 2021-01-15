@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFCovidItalyAnalizer"
         xmlns:vm="clr-namespace:WPFCovidItalyAnalizer.ViewModel"
-        xmlns:uc="clr-namespace:WPFCovidItalyAnalizer.View"
+        xmlns:uc="clr-namespace:WPFCovidItalyAnalizer.Control"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:prop="clr-namespace:WPFCovidItalyAnalizer.Properties"
         gif:ImageBehavior.AnimateInDesignMode="True"
         mc:Ignorable="d"
         Title="Covid Data Analyzer" Height="600" Width="800">
@@ -112,9 +113,9 @@
                     <Run Text="Analyzer" />
                 </TextBlock>
             </Label>
-            <ToggleButton  Style="{StaticResource toggle}" Content="Regioni" IsChecked="{Binding RegionSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <ToggleButton  Style="{StaticResource toggle}" Content="Comuni" IsChecked="{Binding CountySelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <ToggleButton  Style="{StaticResource toggle}" Content="Italia" IsChecked="{Binding ItalySelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <ToggleButton  Style="{StaticResource toggle}" Content="{x:Static prop:Resources.Regions}" IsChecked="{Binding RegionSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <ToggleButton  Style="{StaticResource toggle}" Content="{x:Static prop:Resources.County}" IsChecked="{Binding CountySelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <ToggleButton  Style="{StaticResource toggle}" Content="{x:Static prop:Resources.Italy}" IsChecked="{Binding ItalySelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
         <Image Grid.Column="1" Grid.RowSpan="2"
                x:Name="myGif" 
@@ -122,8 +123,8 @@
                Visibility="Collapsed"
                gif:ImageBehavior.AnimatedSource="Spinner-1s-100px.gif"/>
         <StackPanel Grid.Row="1" Background="{StaticResource BackgroundBarColor}">
-            <Button Content="Aggiorna" Click="Refresh_Click"></Button>
-            <Button Content="Opzioni" Click="Setting_Click"></Button>
+            <Button Content="{x:Static prop:Resources.Update}" Click="Refresh_Click"></Button>
+            <Button Content="{x:Static prop:Resources.Settings}" Click="Setting_Click"></Button>
             <Label></Label>
         </StackPanel>
         <uc:CartesianChartRegionControl x:Name="CartesianRegion" Visibility="{Binding RegionVisible}"

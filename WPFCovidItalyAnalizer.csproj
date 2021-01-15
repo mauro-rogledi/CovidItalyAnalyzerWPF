@@ -106,13 +106,18 @@
     <Compile Include="Model\PeopleCountyData.cs" />
     <Compile Include="Model\RegionData.cs" />
     <Compile Include="Model\SettingsData.cs" />
+    <Compile Include="Properties\Resources.it-IT.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.it-IT.resx</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\BaseVM.cs" />
     <Compile Include="ViewModel\MenuVM.cs" />
     <Compile Include="ViewModel\SettingVM.cs" />
-    <Compile Include="View\CartesianChartRegionControl.xaml.cs">
+    <Compile Include="Control\CartesianChartRegionControl.xaml.cs">
       <DependentUpon>CartesianChartRegionControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PieChartItalyControl.xaml.cs">
+    <Compile Include="Control\PieChartItalyControl.xaml.cs">
       <DependentUpon>PieChartItalyControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SettingWindow.xaml.cs">
@@ -130,11 +135,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\CartesianChartRegionControl.xaml">
+    <Page Include="Control\CartesianChartRegionControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\PieChartItalyControl.xaml">
+    <Page Include="Control\PieChartItalyControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -157,8 +162,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Properties\Resources.it-IT.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.it-IT.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />

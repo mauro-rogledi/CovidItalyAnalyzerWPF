@@ -7,7 +7,7 @@ using System.Windows.Controls;
 using WPFCovidItalyAnalizer.Library;
 using WPFCovidItalyAnalizer.Model;
 
-namespace WPFCovidItalyAnalizer.View
+namespace WPFCovidItalyAnalizer.Control
 {
     /// <summary>
     /// Interaction logic for CartesianChartRegionControl.xaml
@@ -17,10 +17,8 @@ namespace WPFCovidItalyAnalizer.View
         public ObservableCollection<Model.ComboData> RegionDatas { get; set; }
         public ObservableCollection<string> ChartDatas { get; set; }
 
-        public SeriesCollection SeriesViews { get; set; }
 
         private Model.ComboData regionSelected;
-
         public Model.ComboData RegionSelected
         {
             get { return regionSelected; }
@@ -32,7 +30,6 @@ namespace WPFCovidItalyAnalizer.View
         }
 
         private string chartSelected;
-
         public string ChartSelected
         {
             get { return chartSelected; }
