@@ -113,9 +113,30 @@
                     <Run Text="Analyzer" />
                 </TextBlock>
             </Label>
-            <ToggleButton  Style="{StaticResource toggle}" Content="{x:Static prop:Resources.Regions}" IsChecked="{Binding RegionSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <ToggleButton  Style="{StaticResource toggle}" Content="{x:Static prop:Resources.County}" IsChecked="{Binding CountySelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <ToggleButton  Style="{StaticResource toggle}" Content="{x:Static prop:Resources.Italy}" IsChecked="{Binding ItalySelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <ToggleButton  Style="{StaticResource toggle}" IsChecked="{Binding RegionSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ToggleButton.Content>
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="region.png" Width="30" Height="30" Margin="10"/>
+                        <TextBlock Text="{x:Static prop:Resources.Regions}" TextAlignment="Center"/>
+                    </StackPanel>
+                </ToggleButton.Content>
+            </ToggleButton>
+            <ToggleButton  Style="{StaticResource toggle}" IsChecked="{Binding CountySelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ToggleButton.Content>
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="county.png" Width="30" Height="30" Margin="10"/>
+                        <TextBlock Text="{x:Static prop:Resources.Counties}" TextAlignment="Center"/>
+                    </StackPanel>
+                </ToggleButton.Content>
+            </ToggleButton>
+            <ToggleButton  Style="{StaticResource toggle}" IsChecked="{Binding ItalySelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ToggleButton.Content>
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="italy.png" Width="30" Height="30" Margin="10"/>
+                        <TextBlock Text="{x:Static prop:Resources.Italy}" TextAlignment="Center"/>
+                    </StackPanel>
+                </ToggleButton.Content>
+            </ToggleButton>
         </StackPanel>
         <Image Grid.Column="1" Grid.RowSpan="2"
                x:Name="myGif" 

@@ -196,5 +196,14 @@
   <ItemGroup>
     <Resource Include="icons8-coronavirus-96.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\italy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\region.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\county.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
