@@ -38,7 +38,7 @@ namespace WPFCovidItalyAnalizer.Library
 
         public static List<ReturnData> FillDailySwabs(int region)
         {
-            return FillRegionWithFunction(region, f => f.nuovi_tamponi);
+            return FillRegionWithFunction(region, f => f.nuovi_tamponi_test_molecolare);
         }
 
         public static List<ReturnData> FillDailyCases(int region)
@@ -135,7 +135,7 @@ namespace WPFCovidItalyAnalizer.Library
         public static List<ReturnData> FillWeeklyCases(int region)
         {
             return FillDailyCases(region)
-                .GroupBy(g => myCal.GetWeekOfYear(g.data, myCWR, myFirstDOW))
+                .GroupBy(g => $"{g.data.Year}-{myCal.GetWeekOfYear(g.data, myCWR, myFirstDOW)}")
                 .Select((s) => new ReturnData
                 {
                     data = s.Max(f => f.data),
@@ -149,7 +149,7 @@ namespace WPFCovidItalyAnalizer.Library
         public static List<ReturnData> FillWeeklySwab(int region)
         {
             return FillDailySwabs(region)
-                .GroupBy(g => myCal.GetWeekOfYear(g.data, myCWR, myFirstDOW))
+                .GroupBy(g => $"{g.data.Year}-{myCal.GetWeekOfYear(g.data, myCWR, myFirstDOW)}")
                 .Select((s) => new ReturnData
                 {
                     data = s.Max(f => f.data),
@@ -163,7 +163,7 @@ namespace WPFCovidItalyAnalizer.Library
         public static List<ReturnData> FillWeeklyDeads(int region)
         {
             return FillDailyDeads(region)
-                .GroupBy(g => myCal.GetWeekOfYear(g.data, myCWR, myFirstDOW))
+                .GroupBy(g => $"{g.data.Year}-{myCal.GetWeekOfYear(g.data, myCWR, myFirstDOW)}")
                 .Select((s) => new ReturnData
                 {
                     data = s.Max(f => f.data),

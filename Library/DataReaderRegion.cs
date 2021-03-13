@@ -93,6 +93,8 @@ namespace WPFCovidItalyAnalizer.Library
                     data.Select((curr, i) =>
                     {
                         curr.nuovi_tamponi = Math.Abs(i > 0 ? curr.tamponi - data[i - 1].tamponi : curr.tamponi);
+                        curr.nuovi_tamponi_test_molecolare = GetTamponi(data, curr, i);
+                        curr.nuovi_tamponi_test_antigenico_rapido = Math.Abs(i > 0 ? curr.tamponi_test_antigenico_rapido_not_null - data[i - 1].tamponi_test_antigenico_rapido_not_null : curr.tamponi_test_antigenico_rapido_not_null);
                         curr.nuovi_terapia_intensiva = i > 0 ? curr.terapia_intensiva - data[i - 1].terapia_intensiva : curr.terapia_intensiva;
                         curr.nuovi_ospedalizzati = i > 0 ? curr.totale_ospedalizzati - data[i - 1].totale_ospedalizzati : curr.totale_ospedalizzati;
                         curr.nuovi_deceduti = i > 0 ? curr.deceduti - data[i - 1].deceduti : curr.deceduti;
@@ -101,6 +103,17 @@ namespace WPFCovidItalyAnalizer.Library
                 );
             }
         }
+
+        private static float GetTamponi(List<RegionData> data, RegionData curr, int i)
+        {
+            float Today = curr.tamponi_test_molecolare_not_null > 0 ? curr.tamponi_test_molecolare_not_null : curr.tamponi;
+            float Yesterday = i > 0
+                                ? data[i - 1].tamponi_test_molecolare_not_null > 0 ? data[i - 1].tamponi_test_molecolare_not_null : data[i - 1].tamponi
+                                : 0;
+
+            return Today - Yesterday;
+        }
+
         private static void ReadItalyRegions(List<RegionData> allData)
         {
             italyRegions = allData

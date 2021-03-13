@@ -32,7 +32,7 @@ namespace WPFCovidItalyAnalizer.Library
         internal static List<ReturnData> FillWeeklyCases(int region, int county)
         {
             return FillDailyCases(region, county)
-                .GroupBy(g => myCal.GetWeekOfYear(g.data, myCWR, myFirstDOW))
+                .GroupBy(g => $"{g.data.Year}-{myCal.GetWeekOfYear(g.data, myCWR, myFirstDOW)}")
                 .Select((s) => new ReturnData
                 {
                     data = s.Max(f => f.data),
