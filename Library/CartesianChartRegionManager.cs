@@ -42,6 +42,7 @@ namespace WPFCovidItalyAnalizer.Library
             ChartAvailable.Add(Properties.Resources.TotalCases, (int r, string s) => FillChartWitTotalCases(r, s));
             ChartAvailable.Add(Properties.Resources.IntensiveCare, (int r, string s) => FillChartWitIntensiveCare(r, s));
             ChartAvailable.Add(Properties.Resources.Hospital, (int r, string s) => FillChartWitHospital(r, s));
+            ChartAvailable.Add(Properties.Resources.WeeklyCasesInabitant, (int r, string s) => FillChartWithWeeklyCasesInabitant(r, s));
         }
 
         public string[] GetChartAvailable()
@@ -99,6 +100,40 @@ namespace WPFCovidItalyAnalizer.Library
         public void FillChartWithWeeklyDead(int region, string regionName)
         {
             FillChartWithColumnSeries(region, regionName, Properties.Resources.WeeklySwabs, Properties.Resources.Swabs, DataExtractorRegion.FillWeeklyDeads);
+        }
+
+        public void FillChartWithWeeklyCasesInabitant(int region, string regionName)
+        {
+            var cases = DataExtractorRegion.FillWeeklyCases(region);
+            var poples = 100000 / DataReaderPeople.ReadPeopleByRegion(region);
+
+            this.chart.Series.Clear();
+            this.chart.AxisX.Clear();
+            this.chart.AxisY.Clear();
+
+            this.chart.Series = new SeriesCollection
+            {
+                new ColumnSeries
+                {
+                    Title = $"{Properties.Resources.WeeklyCasesInabitant} {regionName}",
+                    Values = new ChartValues<float>(cases.Select(s => s.value * poples)),
+                    PointGeometry = DefaultGeometries.None,
+                    DataLabels = true,
+                    LabelPoint = point => point.Y.ToString("N0"),
+                    ScalesYAt = 0
+                }
+            };
+
+
+            this.chart.AxisY.Add(new Axis
+            {
+                Title = Properties.Resources.NewCases,
+                LabelFormatter = value => value.ToString("N0")
+            });
+
+
+            this.chart.LegendLocation = LegendLocation.Top;
+            this.chart.Zoom = ZoomingOptions.X;
         }
 
         public void FillChartWithWeeklySwabCases(int region, string regionName)

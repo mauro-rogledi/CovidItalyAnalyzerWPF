@@ -396,6 +396,15 @@ namespace WPFCovidItalyAnalizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Weekly Cases for 100.000 Inabitant.
+        /// </summary>
+        public static string WeeklyCasesInabitant {
+            get {
+                return ResourceManager.GetString("WeeklyCasesInabitant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total weekly cases and swabs.
         /// </summary>
         public static string WeeklyCasesSwabs {

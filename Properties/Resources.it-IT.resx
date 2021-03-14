@@ -196,7 +196,7 @@
     <value>Regioni</value>
   </data>
   <data name="RelationshipCasesSwabs" xml:space="preserve">
-    <value>Rapporto casi / tamponi</value>
+    <value>Rapporto giornaliero casi / tamponi</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Opzioni</value>
@@ -222,8 +222,11 @@
   <data name="WeeklyCases" xml:space="preserve">
     <value>Casi settimanali</value>
   </data>
+  <data name="WeeklyCasesInabitant" xml:space="preserve">
+    <value>Casi settimanali per 100.000 abitanti</value>
+  </data>
   <data name="WeeklyCasesSwabs" xml:space="preserve">
-    <value>Totale settimanale casi e tamponi</value>
+    <value>Rapporto settimanale casi e tamponi</value>
   </data>
   <data name="WeeklyDeads" xml:space="preserve">
     <value>Totale settimanale morti</value>
