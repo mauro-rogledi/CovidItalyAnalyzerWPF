@@ -69,7 +69,7 @@ namespace WPFCovidItalyAnalizer.Library
                 LabelsRotation = 15,
                 Separator = new Separator
                 {
-                    Step = 1,
+                    Step = 7,
                     IsEnabled = true //disable it to make it invisible.
                 }
             });

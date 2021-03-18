@@ -24,7 +24,8 @@ namespace WPFCovidItalyAnalizer.Library
                 .Select((curr, i) => new ReturnData()
                 {
                     data = curr.data,
-                    value = i > 0 ? curr.totale_casi - list[i - 1].totale_casi : curr.totale_casi
+                    value = i > 0 ? curr.totale_casi - list[i - 1].totale_casi : curr.totale_casi,
+                    lbl = curr.data.ToString("dd/MM/yy")
                 }
                 )
                 .ToList();

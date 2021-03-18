@@ -124,6 +124,17 @@ namespace WPFCovidItalyAnalizer.Library
                 }
             };
 
+            this.chart.AxisX.Add(new Axis
+            {
+                Labels = cases.Select(s => s.lbl).ToList(),
+                LabelsRotation = 15,
+                Separator = new Separator
+                {
+                    Step = 1,
+                    IsEnabled = true //disable it to make it invisible.
+                }
+            });
+
 
             this.chart.AxisY.Add(new Axis
             {
