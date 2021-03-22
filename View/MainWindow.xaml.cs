@@ -70,6 +70,10 @@ namespace WPFCovidItalyAnalizer
         private async void Refresh_Click(object sender, RoutedEventArgs e)
         {
             await LoadData(true);
+
+            CartesianRegion.Refresh();
+            PieChartItaly.Refresh();
+            CartesianCounty.Refresh();
         }
     }
 }
