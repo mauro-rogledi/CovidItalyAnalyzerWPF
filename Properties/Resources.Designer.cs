@@ -61,6 +61,15 @@ namespace WPFCovidItalyAnalizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All Date.
+        /// </summary>
+        public static string AllDate {
+            get {
+                return ResourceManager.GetString("AllDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to and.
         /// </summary>
         public static string And {
@@ -205,6 +214,15 @@ namespace WPFCovidItalyAnalizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to From.
+        /// </summary>
+        public static string From {
+            get {
+                return ResourceManager.GetString("From", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Attention: There is a conflict.
         /// </summary>
         public static string GitConflict {
@@ -255,6 +273,69 @@ namespace WPFCovidItalyAnalizer.Properties {
         public static string Italy {
             get {
                 return ResourceManager.GetString("Italy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last 7 Days.
+        /// </summary>
+        public static string LastSevenDays {
+            get {
+                return ResourceManager.GetString("LastSevenDays", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last 6 Months.
+        /// </summary>
+        public static string LastSixMonths {
+            get {
+                return ResourceManager.GetString("LastSixMonths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last 30 Days.
+        /// </summary>
+        public static string LastThirtyDays {
+            get {
+                return ResourceManager.GetString("LastThirtyDays", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last 3 Months.
+        /// </summary>
+        public static string LastThreeMonths {
+            get {
+                return ResourceManager.GetString("LastThreeMonths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last 2 Months.
+        /// </summary>
+        public static string LastTwoMonths {
+            get {
+                return ResourceManager.GetString("LastTwoMonths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last 2 Weeks.
+        /// </summary>
+        public static string LastTwoWeeks {
+            get {
+                return ResourceManager.GetString("LastTwoWeeks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Week.
+        /// </summary>
+        public static string LastWeek {
+            get {
+                return ResourceManager.GetString("LastWeek", resourceCulture);
             }
         }
         
@@ -324,6 +405,15 @@ namespace WPFCovidItalyAnalizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select Range.
+        /// </summary>
+        public static string SelectRange {
+            get {
+                return ResourceManager.GetString("SelectRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         public static string Settings {
@@ -356,6 +446,42 @@ namespace WPFCovidItalyAnalizer.Properties {
         public static string SwabsPerinhabitants {
             get {
                 return ResourceManager.GetString("SwabsPerinhabitants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This Month.
+        /// </summary>
+        public static string ThisMonth {
+            get {
+                return ResourceManager.GetString("ThisMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This Week.
+        /// </summary>
+        public static string ThisWeek {
+            get {
+                return ResourceManager.GetString("ThisWeek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To.
+        /// </summary>
+        public static string To {
+            get {
+                return ResourceManager.GetString("To", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Today.
+        /// </summary>
+        public static string Today {
+            get {
+                return ResourceManager.GetString("Today", resourceCulture);
             }
         }
         

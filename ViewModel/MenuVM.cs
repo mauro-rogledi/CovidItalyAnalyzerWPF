@@ -11,7 +11,7 @@ using System.Windows.Media;
 
 namespace WPFCovidItalyAnalizer.ViewModel
 {
-    public class MenuVM : BaseVM, INotifyPropertyChanged
+    public class MenuVM : BaseVM
     {
         readonly Brush background = new SolidColorBrush(Color.FromArgb(255, 43, 87, 154));
         readonly Brush selected = new SolidColorBrush(Color.FromArgb(255, 0, 32, 80));

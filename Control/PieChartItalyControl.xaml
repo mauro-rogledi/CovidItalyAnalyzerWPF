@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFCovidItalyAnalizer.Control"
+             xmlns:prop="clr-namespace:WPFCovidItalyAnalizer.Properties"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="500" 
@@ -24,7 +25,7 @@
                    FontSize="14"
                    Margin="5"/>
             <DatePicker FontSize="14" Margin="5" SelectedDate="{Binding DateTo, StringFormat=dd/MM/yyyy}"/>
-            <Label Content="Grafico"
+            <Label Content="{x:Static prop:Resources.Chart}"
                    FontSize="14"
                    Margin="5"/>
             <ComboBox ItemsSource="{Binding ChartDatas}"
@@ -44,6 +45,7 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
+            <local:DateRangeControl></local:DateRangeControl>
         </StackPanel>
 
         <Label Grid.Row="1" Content="{Binding PieTitle}" HorizontalAlignment="Center" FontSize="18"/>

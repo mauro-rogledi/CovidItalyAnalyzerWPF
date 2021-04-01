@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFCovidItalyAnalizer.Control"
              xmlns:vm="clr-namespace:WPFCovidItalyAnalizer.ViewModel"
+             xmlns:prop="clr-namespace:WPFCovidItalyAnalizer.Properties"
              mc:Ignorable="d" 
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              d:DesignHeight="450" d:DesignWidth="800" d:DataContext="{d:DesignInstance local:CartesianChartRegionControl}">
@@ -14,7 +15,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#FFF3F3F3">
-            <Label Content="Regione"
+            <Label Content="{x:Static prop:Resources.Region}"
                    FontSize="14"
                    Margin="5"/>
 
@@ -28,13 +29,14 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
 
-            <Label Content="Grafico"
+            <Label Content="{x:Static prop:Resources.Chart}"
                    FontSize="14" Margin="5"/>
             <ComboBox ItemsSource="{Binding ChartDatas}"
                       SelectedValue="{Binding ChartSelected}"
                       Margin="5"
                       Width="260"
                       FontSize="14"></ComboBox>
+            <local:DateRangeControl></local:DateRangeControl>
         </StackPanel>
         <lvc:CartesianChart x:Name="CartesianChart" Grid.Row="1" 
                             FontSize="18"
