@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllDate" xml:space="preserve">
+    <value>Tutte le date</value>
+  </data>
   <data name="And" xml:space="preserve">
     <value>al</value>
   </data>
@@ -165,6 +168,9 @@
   <data name="DownloadingData" xml:space="preserve">
     <value>Scaricamento dati</value>
   </data>
+  <data name="From" xml:space="preserve">
+    <value>Da</value>
+  </data>
   <data name="GitConflict" xml:space="preserve">
     <value>Attenzione è presente un conflitto nei dati</value>
   </data>
@@ -183,6 +189,27 @@
   <data name="Italy" xml:space="preserve">
     <value>Italia</value>
   </data>
+  <data name="LastSevenDays" xml:space="preserve">
+    <value>Ultimi sette giorni</value>
+  </data>
+  <data name="LastSixMonths" xml:space="preserve">
+    <value>Ultimi 6 mesi</value>
+  </data>
+  <data name="LastThirtyDays" xml:space="preserve">
+    <value>Ultimi 30 giorni</value>
+  </data>
+  <data name="LastThreeMonths" xml:space="preserve">
+    <value>Ultimi 3 mesi</value>
+  </data>
+  <data name="LastTwoMonths" xml:space="preserve">
+    <value>Ultimi 2 mesi</value>
+  </data>
+  <data name="LastTwoWeeks" xml:space="preserve">
+    <value>Ultime 2 settimane</value>
+  </data>
+  <data name="LastWeek" xml:space="preserve">
+    <value>Ultima settimana</value>
+  </data>
   <data name="NewCases" xml:space="preserve">
     <value>Nuovi casi</value>
   </data>
@@ -198,6 +225,9 @@
   <data name="RelationshipCasesSwabs" xml:space="preserve">
     <value>Rapporto giornaliero casi / tamponi</value>
   </data>
+  <data name="SelectRange" xml:space="preserve">
+    <value>Intervallo</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>Opzioni</value>
   </data>
@@ -209,6 +239,18 @@
   </data>
   <data name="SwabsPerinhabitants" xml:space="preserve">
     <value>Tamponi per 100.000 abitanti</value>
+  </data>
+  <data name="ThisMonth" xml:space="preserve">
+    <value>Questo mese</value>
+  </data>
+  <data name="ThisWeek" xml:space="preserve">
+    <value>Questa settimana</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>Oggi</value>
   </data>
   <data name="Top" xml:space="preserve">
     <value>Max</value>

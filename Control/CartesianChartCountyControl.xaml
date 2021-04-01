@@ -20,7 +20,7 @@
 
             <ComboBox ItemsSource="{Binding Path=RegionDatas }"
                       SelectedValue="{Binding RegionSelected}"
-                      Width="160" FontSize="10" Margin="5">
+                      MinWidth="100" FontSize="10" Margin="5">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding display}" FontSize="14"/>
@@ -35,7 +35,7 @@
             <ComboBox ItemsSource="{Binding CountyDatas}"
                       SelectedValue="{Binding CountySelected}"
                       Margin="5"
-                      Width="260"
+                      MinWidth="100"
                       FontSize="14">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
@@ -50,8 +50,10 @@
             <ComboBox ItemsSource="{Binding ChartDatas}"
                       SelectedValue="{Binding ChartSelected}"
                       Margin="5"
-                      Width="260"
+                      MinWidth="100"
                       FontSize="14"></ComboBox>
+
+            <local:DateRangeControl></local:DateRangeControl>
         </StackPanel>
         <lvc:CartesianChart x:Name="CartesianChart" Grid.Row="1" 
                             FontSize="18"

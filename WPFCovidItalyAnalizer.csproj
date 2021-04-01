@@ -94,8 +94,13 @@
     <Compile Include="Control\CartesianChartCountyControl.xaml.cs">
       <DependentUpon>CartesianChartCountyControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Control\DateRangeControl.xaml.cs">
+      <DependentUpon>DateRangeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converter\IntegerToEnum.cs" />
     <Compile Include="Library\CartesianChartCountyManager.cs" />
     <Compile Include="Library\CartesianChartRegionManager.cs" />
+    <Compile Include="Library\ComboHelper.cs" />
     <Compile Include="Library\DataExtractorCounty.cs" />
     <Compile Include="Library\DataExtractorRegion.cs" />
     <Compile Include="Library\DataReader.cs" />
@@ -107,6 +112,7 @@
     <Compile Include="Library\SettingManager.cs" />
     <Compile Include="Model\ComboData.cs" />
     <Compile Include="Model\CountyData.cs" />
+    <Compile Include="Model\Enums.cs" />
     <Compile Include="Model\ItalySubdivision.cs" />
     <Compile Include="Model\PeopleCountyData.cs" />
     <Compile Include="Model\RegionData.cs" />
@@ -125,10 +131,15 @@
     <Compile Include="Control\PieChartItalyControl.xaml.cs">
       <DependentUpon>PieChartItalyControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\DateRangeViewModel.cs" />
     <Compile Include="View\SettingWindow.xaml.cs">
       <DependentUpon>SettingWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Control\CartesianChartCountyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\DateRangeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
