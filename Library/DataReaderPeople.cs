@@ -25,7 +25,7 @@ namespace WPFCovidItalyAnalizer.Library
                 .popolazione;
         }
 
-        public static float ReadPeopleCounty(int region, int county)
+        public static float ReadPeopleByCounty(int region, int county)
         {
             if (PeopleCounty == null)
                 PeopleCounty = ReadCountyDataFromJson();
