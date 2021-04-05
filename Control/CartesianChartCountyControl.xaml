@@ -53,7 +53,6 @@
                       MinWidth="100"
                       FontSize="14"></ComboBox>
 
-            <local:DateRangeControl></local:DateRangeControl>
         </StackPanel>
         <lvc:CartesianChart x:Name="CartesianChart" Grid.Row="1" 
                             FontSize="18"

@@ -5,39 +5,30 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFCovidItalyAnalizer.Control"
              mc:Ignorable="d" 
-             xmlns:prop="clr-namespace:WPFCovidItalyAnalizer.Properties"
-             xmlns:conv="clr-namespace:WPFCovidItalyAnalizer.Converter"
-             xmlns:vm="clr-namespace:WPFCovidItalyAnalizer.ViewModel"
-             FontSize="14"
-             d:DesignHeight="40" d:DesignWidth="800">
-    <UserControl.Resources>
-        <conv:IntegerToEnum x:Key="ITOE"/>
-    </UserControl.Resources>
-    <UserControl.DataContext>
-        <vm:DateRangeViewModel/>
-    </UserControl.DataContext>
-    <Grid Height="40" >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel  Grid.Column="0" Orientation="Horizontal" Height="Auto">
-            <Label Content="{x:Static prop:Resources.SelectRange}" Margin="5"/>
-            <ComboBox MinWidth="100" Margin="5" 
-                      ItemsSource="{Binding RangeType, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
-                      DisplayMemberPath="display" 
+              xmlns:prop="clr-namespace:WPFCovidItalyAnalizer.Properties"
+             d:DesignHeight="52" d:DesignWidth="558">
+        <Grid Height="40" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel  Grid.Column="0" Orientation="Horizontal" Height="Auto">
+                <Label Content="{x:Static prop:Resources.SelectRange}" Margin="5"/>
+            <ComboBox x:Name="range"
+                        MinWidth="100" Margin="5" 
+                      DisplayMemberPath="display"
                       SelectedValuePath="value"
-                      SelectedValue="{Binding SelectedValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ITOE}}" >
-            </ComboBox>
-        </StackPanel>        
-        <StackPanel Grid.Column="1" Orientation="Horizontal">
-            <Label Content="{x:Static prop:Resources.From}" Margin="5"/>
-            <DatePicker Margin="5" SelectedDateFormat="Short" SelectedDate="{Binding DateFrom, StringFormat='yyyy'}" />
+                      SelectionChanged="ComboBox_SelectionChanged"/>
+
         </StackPanel>
-        <StackPanel  Grid.Column="2" Orientation="Horizontal">
-            <Label Content="{x:Static prop:Resources.To}" Margin="5"/>
-            <DatePicker Margin="5" SelectedDateFormat="Short" SelectedDate="{Binding DateTo, StringFormat='yyyy'}" />
-        </StackPanel>
-    </Grid>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Label Content="{x:Static prop:Resources.From}" Margin="5"/>
+                <DatePicker x:Name="dateFrom" Margin="5" SelectedDateFormat="Short" SelectedDateChanged="dateFrom_SelectedDateChanged" />
+            </StackPanel>
+            <StackPanel  Grid.Column="2" Orientation="Horizontal">
+                <Label Content="{x:Static prop:Resources.To}" Margin="5"/>
+                <DatePicker x:Name="dateTo" Margin="5" SelectedDateFormat="Short" SelectedDateChanged="dateTo_SelectedDateChanged" />
+            </StackPanel>
+        </Grid>
 </UserControl>

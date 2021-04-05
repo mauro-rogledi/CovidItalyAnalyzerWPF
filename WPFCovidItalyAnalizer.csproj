@@ -123,6 +123,7 @@
       <DependentUpon>Resources.it-IT.resx</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BaseVM.cs" />
+    <Compile Include="ViewModel\ChartViewModel.cs" />
     <Compile Include="ViewModel\MenuVM.cs" />
     <Compile Include="ViewModel\SettingVM.cs" />
     <Compile Include="Control\CartesianChartRegionControl.xaml.cs">
@@ -131,7 +132,6 @@
     <Compile Include="Control\PieChartItalyControl.xaml.cs">
       <DependentUpon>PieChartItalyControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\DateRangeViewModel.cs" />
     <Compile Include="View\SettingWindow.xaml.cs">
       <DependentUpon>SettingWindow.xaml</DependentUpon>
     </Compile>

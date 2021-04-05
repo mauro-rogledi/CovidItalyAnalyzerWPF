@@ -45,7 +45,6 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <local:DateRangeControl></local:DateRangeControl>
         </StackPanel>
 
         <Label Grid.Row="1" Content="{Binding PieTitle}" HorizontalAlignment="Center" FontSize="18"/>

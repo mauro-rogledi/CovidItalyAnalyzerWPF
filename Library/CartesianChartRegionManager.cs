@@ -19,7 +19,9 @@ namespace WPFCovidItalyAnalizer.Library
         private DayOfWeek myFirstDOW;
         private readonly CartesianChart chart;
 
-        public Func<Model.ComboData> Region { get; set; }
+        public Func<ComboData> Region { get; set; }
+        public Func<DateTime> FromDate { get; set; }
+        public Func<DateTime> ToDate { get; set; }
 
         private readonly Dictionary<string, Action<int, string>> ChartAvailable = new Dictionary<string, Action<int, string>>();
 
@@ -59,52 +61,82 @@ namespace WPFCovidItalyAnalizer.Library
 
         private void FillChartWitIntensiveCare(int region, string regionName)
         {
-            FillChartWithLinearSeries(region, regionName, Properties.Resources.IntensiveCare, Properties.Resources.IntensiveCare, DataExtractorRegion.FillIntensiveCare);
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            FillChartWithLinearSeries(region, regionName, dateFrom, dateTo, Properties.Resources.IntensiveCare, Properties.Resources.IntensiveCare, DataExtractorRegion.FillIntensiveCare);
         }
 
         private void FillChartWitHospital(int region, string regionName)
         {
-            FillChartWithLinearSeries(region, regionName, Properties.Resources.Hospital, Properties.Resources.Hospital, DataExtractorRegion.FillHospital);
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            FillChartWithLinearSeries(region, regionName, dateFrom, dateTo, Properties.Resources.Hospital, Properties.Resources.Hospital, DataExtractorRegion.FillHospital);
         }
 
         private void FillChartWitDailyDeads(int region, string regionName)
         {
-            FillChartWithLinearSeries(region, regionName, Properties.Resources.DailyDeads, Properties.Resources.Deads, DataExtractorRegion.FillDailyDeads);
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            FillChartWithLinearSeries(region, regionName, dateFrom, dateTo, Properties.Resources.DailyDeads, Properties.Resources.Deads, DataExtractorRegion.FillDailyDeads);
         }
 
         private void FillChartWitDailySwabs(int region, string regionName)
         {
-            FillChartWithLinearSeries(region, regionName, Properties.Resources.DailySwabs, Properties.Resources.Swabs, DataExtractorRegion.FillDailySwabs);
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            FillChartWithLinearSeries(region, regionName, dateFrom, dateTo, Properties.Resources.DailySwabs, Properties.Resources.Swabs, DataExtractorRegion.FillDailySwabs);
         }
 
         public void FillChartWitNewPositives(int region, string regionName)
         {
-            FillChartWithLinearSeries(region, regionName, Properties.Resources.DailyCases, Properties.Resources.Cases, DataExtractorRegion.FillDailyCases);
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            FillChartWithLinearSeries(region, regionName, dateFrom, dateTo, Properties.Resources.DailyCases, Properties.Resources.Cases, DataExtractorRegion.FillDailyCases);
         }
 
         public void FillChartWitTotalCases(int region, string regionName)
         {
-            FillChartWithLinearSeries(region, regionName, Properties.Resources.DailyCases, Properties.Resources.Cases, DataExtractorRegion.FillTotalyCases);
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            FillChartWithLinearSeries(region, regionName, dateFrom, dateTo, Properties.Resources.DailyCases, Properties.Resources.Cases, DataExtractorRegion.FillTotalyCases);
         }
 
         public void FillChartWithWeeklyCases(int region, string regionName)
         {
-            FillChartWithColumnSeries(region, regionName, Properties.Resources.WeeklyCases, Properties.Resources.Cases, DataExtractorRegion.FillWeeklyCases);
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            FillChartWithColumnSeries(region, regionName, dateFrom, dateTo, Properties.Resources.WeeklyCases, Properties.Resources.Cases, DataExtractorRegion.FillWeeklyCases);
         }
 
         public void FillChartWithWeeklySwab(int region, string regionName)
         {
-            FillChartWithColumnSeries(region, regionName, Properties.Resources.WeeklySwabs, Properties.Resources.Swabs, DataExtractorRegion.FillWeeklySwab);
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            FillChartWithColumnSeries(region, regionName, dateFrom, dateTo, Properties.Resources.WeeklySwabs, Properties.Resources.Swabs, DataExtractorRegion.FillWeeklySwab);
         }
 
         public void FillChartWithWeeklyDead(int region, string regionName)
         {
-            FillChartWithColumnSeries(region, regionName, Properties.Resources.WeeklySwabs, Properties.Resources.Swabs, DataExtractorRegion.FillWeeklyDeads);
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            FillChartWithColumnSeries(region, regionName, dateFrom, dateTo, Properties.Resources.WeeklySwabs, Properties.Resources.Swabs, DataExtractorRegion.FillWeeklyDeads);
         }
 
         public void FillChartWithWeeklyCasesInabitant(int region, string regionName)
         {
-            var cases = DataExtractorRegion.FillWeeklyCases(region);
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            var cases = DataExtractorRegion.FillWeeklyCases(region, dateFrom, dateTo);
             var poples = 100000 / DataReaderPeople.ReadPeopleByRegion(region);
 
             this.chart.Series.Clear();
@@ -135,13 +167,11 @@ namespace WPFCovidItalyAnalizer.Library
                 }
             });
 
-
             this.chart.AxisY.Add(new Axis
             {
                 Title = Properties.Resources.NewCases,
                 LabelFormatter = value => value.ToString("N0")
             });
-
 
             this.chart.LegendLocation = LegendLocation.Top;
             this.chart.Zoom = ZoomingOptions.X;
@@ -149,8 +179,11 @@ namespace WPFCovidItalyAnalizer.Library
 
         public void FillChartWithWeeklySwabCases(int region, string regionName)
         {
-            var swab = DataExtractorRegion.FillWeeklySwabCases(region);
-            var cases = DataExtractorRegion.FillWeeklyCases(region);
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            var swab = DataExtractorRegion.FillWeeklySwabCases(region, dateFrom, dateTo);
+            var cases = DataExtractorRegion.FillWeeklyCases(region, dateFrom, dateTo);
 
             this.chart.Series.Clear();
             this.chart.AxisX.Clear();
@@ -207,8 +240,11 @@ namespace WPFCovidItalyAnalizer.Library
 
         public void FillChartWithDailySwabCases(int region, string regionName)
         {
-            var swab = DataExtractorRegion.FillDailySwabCases(region);
-            var cases = DataExtractorRegion.FillDailyCases(region);
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            var swab = DataExtractorRegion.FillDailySwabCases(region, dateFrom, dateTo);
+            var cases = DataExtractorRegion.FillDailyCases(region, dateFrom, dateTo);
 
             this.chart.Series.Clear();
             this.chart.AxisX.Clear();
@@ -263,9 +299,9 @@ namespace WPFCovidItalyAnalizer.Library
             this.chart.Zoom = ZoomingOptions.X;
         }
 
-        private void FillChartWithLinearSeries(int region, string regionName, string titleSeries, string titleY, Func<int, List<ReturnData>> func)
+        private void FillChartWithLinearSeries(int region, string regionName, DateTime dateFrom, DateTime dateTo, string titleSeries, string titleY, Func<int, DateTime, DateTime, List<ReturnData>> func)
         {
-            var data = func.Invoke(region);
+            var data = func.Invoke(region, dateFrom, dateTo);
             var linearSeries = new LineSeries
             {
                 Title = $"{titleSeries} {regionName}",
@@ -279,9 +315,9 @@ namespace WPFCovidItalyAnalizer.Library
             FillChart(titleSeries, titleY, linearSeries, labels, 7);
         }
 
-        private void FillChartWithColumnSeries(int region, string regionName, string titleSeries, string titleY, Func<int, List<ReturnData>> func)
+        private void FillChartWithColumnSeries(int region, string regionName, DateTime dateFrom, DateTime dateTo, string titleSeries, string titleY, Func<int, DateTime, DateTime, List<ReturnData>> func)
         {
-            var data = func.Invoke(region);
+            var data = func.Invoke(region, dateFrom, dateTo);
             var columnSeries = new ColumnSeries
             {
                 Title = $"{titleSeries} {regionName}",

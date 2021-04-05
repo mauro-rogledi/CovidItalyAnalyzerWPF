@@ -48,6 +48,13 @@ namespace WPFCovidItalyAnalizer.Library
                  .OrderBy(d => d.data);
         }
 
+        internal static IOrderedEnumerable<RegionData> ReadRegionDataAtRangeData(int region, DateTime dateFrom, DateTime dateTo)
+        {
+            return DataReaderRegion.RegionDatas
+                 .Where(r => r.codice_regione == region && r.data.Date >= dateFrom.Date && r.data.Date <= dateTo.Date)
+                 .OrderBy(d => d.data);
+        }
+
         internal static IEnumerable<RegionData> ReadRegionsAtDate(DateTime date)
         {
             return DataReaderRegion.RegionDatas

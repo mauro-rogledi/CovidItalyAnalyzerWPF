@@ -21,29 +21,29 @@ namespace WPFCovidItalyAnalizer.Library
         private static CalendarWeekRule myCWR = myCI.DateTimeFormat.CalendarWeekRule;
         private static DayOfWeek myFirstDOW = myCI.DateTimeFormat.FirstDayOfWeek;
 
-        public static List<ReturnData> FillIntensiveCare(int region)
+        public static List<ReturnData> FillIntensiveCare(int region, DateTime dateFrom, DateTime dateTo)
         {
-            return FillRegionWithFunction(region, f => f.terapia_intensiva);
+            return FillRegionWithFunction(region, dateFrom, dateTo, f => f.terapia_intensiva);
         }
 
-        public static List<ReturnData> FillHospital(int region)
+        public static List<ReturnData> FillHospital(int region, DateTime dateFrom, DateTime dateTo)
         {
-            return FillRegionWithFunction(region, f => f.totale_ospedalizzati);
+            return FillRegionWithFunction(region, dateFrom, dateTo, f => f.totale_ospedalizzati);
         }
 
-        public static List<ReturnData> FillDailyDeads(int region)
+        public static List<ReturnData> FillDailyDeads(int region, DateTime dateFrom, DateTime dateTo)
         {
-            return FillRegionWithFunction(region, f => f.nuovi_deceduti);
+            return FillRegionWithFunction(region, dateFrom, dateTo, f => f.nuovi_deceduti);
         }
 
-        public static List<ReturnData> FillDailySwabs(int region)
+        public static List<ReturnData> FillDailySwabs(int region, DateTime dateFrom, DateTime dateTo)
         {
-            return FillRegionWithFunction(region, f => f.nuovi_tamponi_test_molecolare);
+            return FillRegionWithFunction(region, dateFrom, dateTo, f => f.nuovi_tamponi_test_molecolare);
         }
 
-        public static List<ReturnData> FillDailyCases(int region)
+        public static List<ReturnData> FillDailyCases(int region, DateTime dateFrom, DateTime dateTo)
         {
-            return FillRegionWithFunction(region, p => p.nuovi_positivi);
+            return FillRegionWithFunction(region, dateFrom, dateTo, p => p.nuovi_positivi);
         }
 
         internal static List<ReturnData> FillTotalRegionCasesAtDate(DateTime date, int top)
@@ -104,7 +104,7 @@ namespace WPFCovidItalyAnalizer.Library
         }
 
 
-        internal static List<ReturnData> FillRangeDataInhabitants(DateTime dateFrom, DateTime dateTo, int top, Func<Model.RegionData, float> func)
+        internal static List<ReturnData> FillRangeDataInhabitants(DateTime dateFrom, DateTime dateTo, int top, Func<RegionData, float> func)
         {
             return dateFrom.Date == dateTo.Date
                 ? DataReaderRegion
@@ -132,9 +132,9 @@ namespace WPFCovidItalyAnalizer.Library
                     .ToList();
         }
 
-        public static List<ReturnData> FillWeeklyCases(int region)
+        public static List<ReturnData> FillWeeklyCases(int region, DateTime dateFrom, DateTime dateTo)
         {
-            return FillDailyCases(region)
+            return FillDailyCases(region, dateFrom, dateTo)
                 .GroupBy(g => $"{g.data.Year}-{myCal.GetWeekOfYear(g.data, myCWR, myFirstDOW)}")
                 .Select((s) => new ReturnData
                 {
@@ -146,9 +146,9 @@ namespace WPFCovidItalyAnalizer.Library
                 .ToList();
         }
 
-        public static List<ReturnData> FillWeeklySwab(int region)
+        public static List<ReturnData> FillWeeklySwab(int region, DateTime dateFrom, DateTime dateTo)
         {
-            return FillDailySwabs(region)
+            return FillDailySwabs(region, dateFrom, dateTo)
                 .GroupBy(g => $"{g.data.Year}-{myCal.GetWeekOfYear(g.data, myCWR, myFirstDOW)}")
                 .Select((s) => new ReturnData
                 {
@@ -160,9 +160,9 @@ namespace WPFCovidItalyAnalizer.Library
                 .ToList();
         }
 
-        public static List<ReturnData> FillWeeklyDeads(int region)
+        public static List<ReturnData> FillWeeklyDeads(int region, DateTime dateFrom, DateTime dateTo)
         {
-            return FillDailyDeads(region)
+            return FillDailyDeads(region, dateFrom, dateTo)
                 .GroupBy(g => $"{g.data.Year}-{myCal.GetWeekOfYear(g.data, myCWR, myFirstDOW)}")
                 .Select((s) => new ReturnData
                 {
@@ -188,10 +188,10 @@ namespace WPFCovidItalyAnalizer.Library
         //        .ToList();
         //}
 
-        public static List<ReturnData> FillWeeklySwabCases(int region)
+        public static List<ReturnData> FillWeeklySwabCases(int region, DateTime dateFrom, DateTime dateTo)
         {
-            var cases = FillWeeklyCases(region);
-            var swab = FillWeeklySwab(region);
+            var cases = FillWeeklyCases(region, dateFrom, dateTo);
+            var swab = FillWeeklySwab(region, dateFrom, dateTo);
 
             return cases.Zip(swab, (c, s) => new ReturnData()
             {
@@ -202,10 +202,10 @@ namespace WPFCovidItalyAnalizer.Library
             .ToList();
         }
 
-        public static List<ReturnData> FillDailySwabCases(int region)
+        public static List<ReturnData> FillDailySwabCases(int region, DateTime dateFrom, DateTime dateTo)
         {
-            var cases = FillDailyCases(region);
-            var swab = FillDailySwabs(region);
+            var cases = FillDailyCases(region, dateFrom, dateTo);
+            var swab = FillDailySwabs(region, dateFrom, dateTo);
 
             return cases.Zip(swab, (c, s) => new ReturnData()
             {
@@ -216,10 +216,13 @@ namespace WPFCovidItalyAnalizer.Library
             .ToList();
         }
 
-        internal static List<ReturnData> FillTotalyCases(int region)
+        internal static List<ReturnData> FillTotalyCases(int region, DateTime dateFrom, DateTime dateTo)
         {
-            return DataReaderRegion.ReadRegionData(region)
-                .OrderBy(d => d.data)
+            var list = dateFrom == dateTo
+                 ? DataReaderRegion.ReadRegionData(region)
+                 : DataReaderRegion.ReadRegionDataAtRangeData(region, dateFrom, dateTo);
+
+            return list
                 .Select((s) => new ReturnData
                 {
                     data = s.data,
@@ -246,9 +249,19 @@ namespace WPFCovidItalyAnalizer.Library
                 .ToList();
         }
 
-        public static List<ReturnData> FillRegionWithFunction(int region, Func<RegionData, float> func)
+        public static List<ReturnData> FillRegionWithFunction(int region, DateTime dateFrom, DateTime dateTo, Func<RegionData, float> func)
         {
-            return DataReaderRegion.ReadRegionData(region)
+            return dateFrom == dateTo
+            ? DataReaderRegion.ReadRegionData(region)
+                .Select((curr, i) => new ReturnData()
+                {
+                    data = curr.data,
+                    value = func?.Invoke(curr) ?? 0F,
+                    lbl = curr.data.ToString("dd/MM/yy")
+                }
+                )
+                .ToList()
+           : DataReaderRegion.ReadRegionDataAtRangeData(region, dateFrom, dateTo)
                 .Select((curr, i) => new ReturnData()
                 {
                     data = curr.data,
