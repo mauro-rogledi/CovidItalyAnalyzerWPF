@@ -67,6 +67,22 @@ namespace WPFCovidItalyAnalizer.Control
             }
         }
 
+        private DateTime dateFrom;
+
+        public DateTime DateFrom
+        {
+            get { return dateFrom; }
+            set { SetValue<DateTime>(ref dateFrom, value); RefreshChart(); }
+        }
+
+        private DateTime dateTo;
+
+        public DateTime DateTo
+        {
+            get { return dateTo; }
+            set { SetValue<DateTime>(ref dateTo, value); RefreshChart(); }
+        }
+
         public ObservableCollection<ComboData> RegionDatas { get; set; }
 
         public ComboData RegionSelected

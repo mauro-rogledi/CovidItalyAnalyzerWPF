@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:WPFCovidItalyAnalizer.Control"
              xmlns:prop="clr-namespace:WPFCovidItalyAnalizer.Properties"
              mc:Ignorable="d" 
+             FontSize="14"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              d:DesignHeight="450" d:DesignWidth="800" d:DataContext="{d:DesignInstance local:CartesianChartCountyControl}">
     <Grid DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType=UserControl}}">
@@ -15,12 +16,11 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#FFF3F3F3">
             <Label Content="{x:Static prop:Resources.Region}"
-                   FontSize="14"
                    Margin="5"/>
 
             <ComboBox ItemsSource="{Binding Path=RegionDatas }"
                       SelectedValue="{Binding RegionSelected}"
-                      MinWidth="100" FontSize="10" Margin="5">
+                      MinWidth="100" Margin="5">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding display}" FontSize="14"/>
@@ -29,30 +29,29 @@
             </ComboBox>
 
             <Label Content="{x:Static prop:Resources.County}"
-                   FontSize="14"
                    Margin="5"/>
 
             <ComboBox ItemsSource="{Binding CountyDatas}"
                       SelectedValue="{Binding CountySelected}"
                       Margin="5"
-                      MinWidth="100"
-                      FontSize="14">
+                      MinWidth="100">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding display}" FontSize="14"/>
+                        <TextBlock Text="{Binding display}"/>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
 
             </ComboBox>
 
             <Label Content="{x:Static prop:Resources.Chart}"
-                   FontSize="14" Margin="5"/>
+                   Margin="5"/>
             <ComboBox ItemsSource="{Binding ChartDatas}"
                       SelectedValue="{Binding ChartSelected}"
                       Margin="5"
-                      MinWidth="100"
-                      FontSize="14"></ComboBox>
-
+                      MinWidth="100"/>
+            <local:DateRangeControl 
+                DateFrom="{Binding DateFrom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                DateTo="{Binding DateTo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
         <lvc:CartesianChart x:Name="CartesianChart" Grid.Row="1" 
                             FontSize="18"

@@ -148,14 +148,14 @@
             <Button Content="{x:Static prop:Resources.Settings}" Click="Setting_Click"></Button>
             <Label></Label>
         </StackPanel>
-        <uc:CartesianChartRegionControl x:Name="CartesianRegion" Visibility="{Binding RegionVisible}"
+        <uc:CartesianChartRegionControl x:Name="CartesianRegion" Visibility="{Binding RegionVisible, Source={StaticResource vmMenu}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                             Grid.Column="1" Grid.RowSpan="2"
                                             ></uc:CartesianChartRegionControl>
-        <uc:PieChartItalyControl x:Name="PieChartItaly" Visibility="{Binding ItalyVisible}"
+        <uc:PieChartItalyControl x:Name="PieChartItaly" Visibility="{Binding ItalyVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                             Grid.Column="1" Grid.RowSpan="2"
                                             ></uc:PieChartItalyControl>
 
-        <uc:CartesianChartCountyControl x:Name="CartesianCounty" Visibility="{Binding CountyVisible}"
+        <uc:CartesianChartCountyControl x:Name="CartesianCounty" Visibility="{Binding CountyVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                             Grid.Column="1" Grid.RowSpan="2"
                                             ></uc:CartesianChartCountyControl>
     </Grid>
