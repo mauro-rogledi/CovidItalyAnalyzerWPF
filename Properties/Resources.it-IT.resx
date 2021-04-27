@@ -210,6 +210,9 @@
   <data name="LastWeek" xml:space="preserve">
     <value>Ultima settimana</value>
   </data>
+  <data name="LastYear" xml:space="preserve">
+    <value>Ultimo anno</value>
+  </data>
   <data name="NewCases" xml:space="preserve">
     <value>Nuovi casi</value>
   </data>

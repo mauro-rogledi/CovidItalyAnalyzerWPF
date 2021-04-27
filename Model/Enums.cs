@@ -17,6 +17,7 @@ namespace WPFCovidItalyAnalizer.Model
         LastTwoMonths,
         LastThreeMonths,
         LastSixMonths,
+        LastYear,
         AllDate
     }
 }

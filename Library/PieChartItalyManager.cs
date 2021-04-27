@@ -66,7 +66,7 @@ namespace WPFCovidItalyAnalizer.Library
             .Take(top)
             .ToList();
 
-            var Title = dateFrom.Date == dateTo.Date
+            Title = dateFrom.Date == dateTo.Date
                 ? $"{title} {dateFrom.Date.ToShortDateString()}"
                 : $"{title} {Properties.Resources.BetweenDate} {dateFrom.Date.ToString("dd/MM/yy")} {Properties.Resources.And} {dateTo.Date.ToString("dd/MM/yy")}";
 

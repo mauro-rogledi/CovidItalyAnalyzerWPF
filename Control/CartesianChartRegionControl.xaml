@@ -9,10 +9,10 @@
              mc:Ignorable="d" 
              FontSize="14"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             d:DesignHeight="450" d:DesignWidth="800">
-        <UserControl.DataContext>
-            <vm:ChartViewModel/>
-        </UserControl.DataContext>
+             d:DesignHeight="459" d:DesignWidth="1000">
+    <UserControl.DataContext>
+        <vm:ChartViewModel/>
+    </UserControl.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

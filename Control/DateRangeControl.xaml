@@ -24,11 +24,11 @@
         </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Horizontal">
                 <Label Content="{x:Static prop:Resources.From}" Margin="5"/>
-                <DatePicker x:Name="dateFrom" Margin="5" SelectedDateFormat="Short" SelectedDateChanged="dateFrom_SelectedDateChanged" />
+                <DatePicker x:Name="dateFrom" Margin="5" SelectedDateFormat="Short" SelectedDateChanged="dateFrom_SelectedDateChanged" FirstDayOfWeek="Monday" DisplayDateStart="2020-02-28" />
             </StackPanel>
             <StackPanel  Grid.Column="2" Orientation="Horizontal">
                 <Label Content="{x:Static prop:Resources.To}" Margin="5"/>
-                <DatePicker x:Name="dateTo" Margin="5" SelectedDateFormat="Short" SelectedDateChanged="dateTo_SelectedDateChanged" />
+                <DatePicker x:Name="dateTo" Margin="5" SelectedDateFormat="Short" SelectedDateChanged="dateTo_SelectedDateChanged" FirstDayOfWeek="Monday" DisplayDateStart="2020-02-28" />
             </StackPanel>
         </Grid>
 </UserControl>

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,6 +37,15 @@ namespace WPFCovidItalyAnalizer.Control
 
             dateFrom.SelectedDate = new DateTime(2020,2,28);
             dateTo.SelectedDate = DateTime.Today;
+
+            dateFrom.DisplayDateEnd = DateTime.Today;
+            dateTo.DisplayDateEnd = DateTime.Today;
+
+            Thread.CurrentThread.CurrentCulture = (CultureInfo)Thread.CurrentThread.CurrentCulture.Clone();
+            if (Thread.CurrentThread.CurrentCulture.Name == "it-IT")
+                Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
+            else
+                Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern = "MM/dd/yyyy";
         }
 
         public DateTime? DateFrom
@@ -122,6 +133,10 @@ namespace WPFCovidItalyAnalizer.Control
                 case DateRange.LastSixMonths:
                     DateTo = DateTime.Today;
                     DateFrom = new DateTime(dateto.Year, dateto.Month, 1).AddMonths(-5);
+                    break;
+                case DateRange.LastYear:
+                    DateTo = DateTime.Today;
+                    DateFrom = dateto.AddYears(-1);
                     break;
                 case DateRange.AllDate:
                     DateFrom = new DateTime(2020, 2, 24);

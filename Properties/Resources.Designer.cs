@@ -340,6 +340,15 @@ namespace WPFCovidItalyAnalizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last Year.
+        /// </summary>
+        public static string LastYear {
+            get {
+                return ResourceManager.GetString("LastYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New cases.
         /// </summary>
         public static string NewCases {
