@@ -29,7 +29,7 @@ namespace WPFCovidItalyAnalizer.ViewModel
                 FromDate = () => dateFrom,
                 ToDate = () => dateTo
             };
-
+            ChartAvailable.Clear();
             chartManager.GetChartAvailable().ToList().ForEach(e => { ChartAvailable.Add(e); });
         }
 
