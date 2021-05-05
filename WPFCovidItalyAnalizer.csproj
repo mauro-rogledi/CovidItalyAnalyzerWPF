@@ -108,6 +108,7 @@
     <Compile Include="Library\DataReaderPeople.cs" />
     <Compile Include="Library\DataReaderRegion.cs" />
     <Compile Include="Library\GitFilePicker.cs" />
+    <Compile Include="Library\IChartManager.cs" />
     <Compile Include="Library\PieChartItalyManager.cs" />
     <Compile Include="Library\SettingManager.cs" />
     <Compile Include="Model\ComboData.cs" />

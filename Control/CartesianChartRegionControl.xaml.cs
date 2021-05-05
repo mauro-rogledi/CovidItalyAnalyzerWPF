@@ -24,7 +24,7 @@ namespace WPFCovidItalyAnalizer.Control
 
         public void Refresh()
         {
-            chartViewModel?.SetCartesianChart(CartesianChart);
+            chartViewModel?.SetCartesianChart(new CartesianChartRegionManager(CartesianChart));
             chartViewModel?.Refresh();
         }
     }

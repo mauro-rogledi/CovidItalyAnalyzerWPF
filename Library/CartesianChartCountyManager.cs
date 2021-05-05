@@ -6,15 +6,23 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
+using WPFCovidItalyAnalizer.Model;
+
 namespace WPFCovidItalyAnalizer.Library
 {
-    public class CartesianChartCountyManager
+    public class CartesianChartCountyManager : IChartManager
     {
         private CultureInfo myCI;
         private Calendar myCal;
         private CalendarWeekRule myCWR;
         private DayOfWeek myFirstDOW;
         private CartesianChart chart;
+
+        public Func<ComboData> Region { get; set; }
+
+        public Func<ComboData> County { get; set; }
+        public Func<DateTime> FromDate { get; set; }
+        public Func<DateTime> ToDate { get; set; }
 
         private readonly Dictionary<string, Action<int, int, string>> ChartAvailable = new Dictionary<string, Action<int, int, string>>();
 
@@ -39,7 +47,7 @@ namespace WPFCovidItalyAnalizer.Library
                 .ToArray();
         }
 
-        internal void SetChart(string chart, int region, int county, string display)
+        public void SetChart(string chart, int region, int county, string display)
         {
             ChartAvailable[chart].Invoke(region, county, display);
         }

@@ -1,4 +1,5 @@
 ﻿using LiveCharts.Wpf;
+using LiveCharts.Wpf.Charts.Base;
 
 using System;
 using System.Collections.Generic;
@@ -14,21 +15,21 @@ namespace WPFCovidItalyAnalizer.ViewModel
 {
     public class ChartViewModel : BaseVM
     {
-        private CartesianChartRegionManager chartManager;
+        private IChartManager chartManager = null;
         public ObservableCollection<string> ChartAvailable { get; set; } = new ObservableCollection<string>();
         public ObservableCollection<ComboData> RegionDatas { get; set; } = new ObservableCollection<ComboData>();
         public ObservableCollection<ComboData> CountynDatas { get; set; } = new ObservableCollection<ComboData>();
 
         private ComboData regionSelected;
 
-        internal void SetCartesianChart(CartesianChart cartesianChart)
+        internal void SetCartesianChart(IChartManager chartManager)
         {
-            chartManager = new CartesianChartRegionManager(cartesianChart)
-            {
-                Region = () => regionSelected,
-                FromDate = () => dateFrom,
-                ToDate = () => dateTo
-            };
+            this.chartManager = chartManager;
+            this.chartManager.Region = () => regionSelected;
+            this.chartManager.County = () => countySelected;
+            this.chartManager.FromDate = () => dateFrom;
+            this.chartManager.ToDate = () => dateTo;
+
             ChartAvailable.Clear();
             chartManager.GetChartAvailable().ToList().ForEach(e => { ChartAvailable.Add(e); });
         }
@@ -55,10 +56,22 @@ namespace WPFCovidItalyAnalizer.ViewModel
             }
         }
 
+        private ComboData countySelected;
+
+        public ComboData CountySelected
+        {
+            get { return countySelected; }
+            set
+            {
+                countySelected = value;
+                RefreshChart();
+            }
+        }
+
         private void RefreshChart()
         {
             if (!string.IsNullOrEmpty(chartSelected) && regionSelected != null)
-                chartManager.SetChart(chartSelected, regionSelected.value, regionSelected.display);
+                chartManager.SetChart(chartSelected, regionSelected.value, -1, regionSelected.display);
         }
 
         private DateTime dateFrom;

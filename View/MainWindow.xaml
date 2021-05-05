@@ -151,11 +151,11 @@
         <uc:CartesianChartRegionControl x:Name="CartesianRegion" Visibility="{Binding RegionVisible, Source={StaticResource vmMenu}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                             Grid.Column="1" Grid.RowSpan="2"
                                             ></uc:CartesianChartRegionControl>
-        <uc:PieChartItalyControl x:Name="PieChartItaly" Visibility="{Binding ItalyVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        <uc:PieChartItalyControl x:Name="PieChartItaly" Visibility="{Binding ItalyVisible,  Source={StaticResource vmMenu}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                             Grid.Column="1" Grid.RowSpan="2"
                                             ></uc:PieChartItalyControl>
 
-        <uc:CartesianChartCountyControl x:Name="CartesianCounty" Visibility="{Binding CountyVisible, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        <uc:CartesianChartCountyControl x:Name="CartesianCounty" Visibility="{Binding CountyVisible,  Source={StaticResource vmMenu}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                             Grid.Column="1" Grid.RowSpan="2"
                                             ></uc:CartesianChartCountyControl>
     </Grid>

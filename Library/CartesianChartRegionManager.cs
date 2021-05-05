@@ -1,6 +1,7 @@
 ﻿using LiveCharts;
 using LiveCharts.Definitions.Series;
 using LiveCharts.Wpf;
+using LiveCharts.Wpf.Charts.Base;
 
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using WPFCovidItalyAnalizer.Model;
 
 namespace WPFCovidItalyAnalizer.Library
 {
-    public class CartesianChartRegionManager
+    public class CartesianChartRegionManager : IChartManager
     {
         private CultureInfo myCI;
         private Calendar myCal;
@@ -20,14 +21,15 @@ namespace WPFCovidItalyAnalizer.Library
         private readonly CartesianChart chart;
 
         public Func<ComboData> Region { get; set; }
+        public Func<ComboData> County { get; set; }
         public Func<DateTime> FromDate { get; set; }
         public Func<DateTime> ToDate { get; set; }
 
         private readonly Dictionary<string, Action<int, string>> ChartAvailable = new Dictionary<string, Action<int, string>>();
 
-        public CartesianChartRegionManager(CartesianChart chart)
+        public CartesianChartRegionManager(Chart chart)
         {
-            this.chart = chart;
+            this.chart = chart as CartesianChart;
             myCI = CultureInfo.CurrentCulture;
             myCal = myCI.Calendar;
             myCWR = myCI.DateTimeFormat.CalendarWeekRule;
@@ -54,9 +56,9 @@ namespace WPFCovidItalyAnalizer.Library
                 .ToArray();
         }
 
-        public void SetChart(string chart, int value, string display)
+        public void SetChart(string chart, int region, int county, string display)
         {
-            ChartAvailable[chart].Invoke(value, display);
+            ChartAvailable[chart].Invoke(region, display);
         }
 
         private void FillChartWitIntensiveCare(int region, string regionName)
