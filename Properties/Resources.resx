@@ -274,7 +274,7 @@
   <data name="WeeklyCases" xml:space="preserve">
     <value>Weekly cases</value>
   </data>
-  <data name="WeeklyCasesInabitant" xml:space="preserve">
+  <data name="WeeklyCasesInhabitant" xml:space="preserve">
     <value>Weekly Cases for 100.000 Inabitant</value>
   </data>
   <data name="WeeklyCasesSwabs" xml:space="preserve">

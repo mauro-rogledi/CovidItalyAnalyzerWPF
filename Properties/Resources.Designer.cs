@@ -533,9 +533,9 @@ namespace WPFCovidItalyAnalizer.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Weekly Cases for 100.000 Inabitant.
         /// </summary>
-        public static string WeeklyCasesInabitant {
+        public static string WeeklyCasesInhabitant {
             get {
-                return ResourceManager.GetString("WeeklyCasesInabitant", resourceCulture);
+                return ResourceManager.GetString("WeeklyCasesInhabitant", resourceCulture);
             }
         }
         

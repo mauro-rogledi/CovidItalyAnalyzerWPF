@@ -73,11 +73,11 @@ namespace WPFCovidItalyAnalizer.Library
             DeserializeData(File.ReadAllText(fileName));
         }
 
-        internal static IOrderedEnumerable<CountyData> ReadCountyData(int region, int county)
+        internal static IOrderedEnumerable<CountyData> ReadCountyData(int region, int county, DateTime dateFrom, DateTime dateTo)
         {
-            return DataReaderCounty.CountyDatas
-             .Where(r => r.codice_regione == region && r.codice_provincia == county)
-             .OrderBy(d => d.data);
+            return  DataReaderCounty.CountyDatas
+                .Where(r => r.codice_regione == region && r.codice_provincia == county && r.data.Date >= dateFrom.Date && r.data.Date <= dateTo.Date)
+                .OrderBy(d => d.data);
         }
 
         internal static IOrderedEnumerable<ItalyCounty> ReadCounties(int region)

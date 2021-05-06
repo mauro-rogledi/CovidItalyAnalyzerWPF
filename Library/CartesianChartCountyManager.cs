@@ -12,11 +12,11 @@ namespace WPFCovidItalyAnalizer.Library
 {
     public class CartesianChartCountyManager : IChartManager
     {
-        private CultureInfo myCI;
-        private Calendar myCal;
-        private CalendarWeekRule myCWR;
-        private DayOfWeek myFirstDOW;
-        private CartesianChart chart;
+        private readonly CultureInfo myCI;
+        private readonly Calendar myCal;
+        private readonly CalendarWeekRule myCWR;
+        private readonly DayOfWeek myFirstDOW;
+        private readonly CartesianChart chart;
 
         public Func<ComboData> Region { get; set; }
 
@@ -37,7 +37,7 @@ namespace WPFCovidItalyAnalizer.Library
             ChartAvailable.Add(Properties.Resources.DailyCases, (int r, int c, string s) => FillChartWithDailyCases(r, c, s));
             ChartAvailable.Add(Properties.Resources.WeeklyCases, (int r, int c, string s) => FillChartWithWeeklyCases(r, c, s));
             ChartAvailable.Add(Properties.Resources.TotalCases, (int r, int c, string s) => FillChartWitTotalCases(r, c, s));
-            ChartAvailable.Add(Properties.Resources.WeeklyCasesInabitant, (int r, int c, string s) => FillChartWithWeeklyCasesInhabitant(r, c, s));
+            ChartAvailable.Add(Properties.Resources.WeeklyCasesInhabitant, (int r, int c, string s) => FillChartWithWeeklyCasesInhabitant(r, c, s));
         }
 
         public string[] GetChartAvailable()
@@ -54,7 +54,10 @@ namespace WPFCovidItalyAnalizer.Library
 
         public void FillChartWithDailyCases(int region, int county, string countyName)
         {
-            var data = DataExtractorCounty.FillDailyCases(region, county);
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            var data = DataExtractorCounty.FillDailyCases(region, county, dateFrom, dateTo);
 
             this.chart.Series.Clear();
             this.chart.AxisX.Clear();
@@ -95,7 +98,10 @@ namespace WPFCovidItalyAnalizer.Library
 
         public void FillChartWithWeeklyCases(int region, int county, string countyName)
         {
-            var data = DataExtractorCounty.FillWeeklyCases(region, county);
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            var data = DataExtractorCounty.FillWeeklyCases(region, county, dateFrom, dateTo);
 
             this.chart.Series.Clear();
             this.chart.AxisX.Clear();
@@ -135,7 +141,10 @@ namespace WPFCovidItalyAnalizer.Library
         }
         public void FillChartWithWeeklyCasesInhabitant(int region, int county, string countyName)
         {
-            var data = DataExtractorCounty.FillWeeklyCases(region, county);
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            var data = DataExtractorCounty.FillWeeklyCases(region, county, dateFrom, dateTo);
             var poples = 100000 / DataReaderPeople.ReadPeopleByCounty(region, county);
 
             this.chart.Series.Clear();
@@ -146,7 +155,7 @@ namespace WPFCovidItalyAnalizer.Library
             {
                 new ColumnSeries
                 {
-                    Title = $"{Properties.Resources.WeeklyCases} {countyName}",
+                    Title = $"{Properties.Resources.WeeklyCasesInhabitant} {countyName}",
                     Values = new ChartValues<float>(data.Select(s => (s.value < 0 ? 0 : s.value) * poples)),
                     PointGeometry = DefaultGeometries.None,
                     DataLabels = true,
@@ -177,7 +186,10 @@ namespace WPFCovidItalyAnalizer.Library
 
         public void FillChartWitTotalCases(int region, int county, string countyName)
         {
-            var data = DataExtractorCounty.FillTotalyCases(region, county);
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            var data = DataExtractorCounty.FillTotalyCases(region, county, dateFrom, dateTo);
 
             this.chart.Series.Clear();
             this.chart.AxisX.Clear();

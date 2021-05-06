@@ -14,10 +14,10 @@ namespace WPFCovidItalyAnalizer.Library
 {
     public class CartesianChartRegionManager : IChartManager
     {
-        private CultureInfo myCI;
-        private Calendar myCal;
-        private CalendarWeekRule myCWR;
-        private DayOfWeek myFirstDOW;
+        private readonly CultureInfo myCI;
+        private readonly Calendar myCal;
+        private readonly CalendarWeekRule myCWR;
+        private readonly DayOfWeek myFirstDOW;
         private readonly CartesianChart chart;
 
         public Func<ComboData> Region { get; set; }
@@ -46,7 +46,7 @@ namespace WPFCovidItalyAnalizer.Library
             ChartAvailable.Add(Properties.Resources.TotalCases, (int r, string s) => FillChartWitTotalCases(r, s));
             ChartAvailable.Add(Properties.Resources.IntensiveCare, (int r, string s) => FillChartWitIntensiveCare(r, s));
             ChartAvailable.Add(Properties.Resources.Hospital, (int r, string s) => FillChartWitHospital(r, s));
-            ChartAvailable.Add(Properties.Resources.WeeklyCasesInabitant, (int r, string s) => FillChartWithWeeklyCasesInabitant(r, s));
+            ChartAvailable.Add(Properties.Resources.WeeklyCasesInhabitant, (int r, string s) => FillChartWithWeeklyCasesInabitant(r, s));
         }
 
         public string[] GetChartAvailable()
@@ -149,7 +149,7 @@ namespace WPFCovidItalyAnalizer.Library
             {
                 new ColumnSeries
                 {
-                    Title = $"{Properties.Resources.WeeklyCasesInabitant} {regionName}",
+                    Title = $"{Properties.Resources.WeeklyCasesInhabitant} {regionName}",
                     Values = new ChartValues<float>(cases.Select(s => s.value * poples)),
                     PointGeometry = DefaultGeometries.None,
                     DataLabels = true,

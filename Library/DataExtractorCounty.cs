@@ -15,38 +15,38 @@ namespace WPFCovidItalyAnalizer.Library
         static DayOfWeek myFirstDOW = myCI.DateTimeFormat.FirstDayOfWeek;
 
 
-        internal static List<ReturnData> FillDailyCases(int region, int county)
+        internal static List<ReturnData> FillDailyCases(int region, int county, DateTime dateFrom, DateTime dateTo)
         {
-            var list = DataReaderCounty.ReadCountyData(region, county)
+            var list = DataReaderCounty.ReadCountyData(region, county, dateFrom, dateTo)
                 .ToList();
 
             return list
                 .Select((curr, i) => new ReturnData()
                 {
                     data = curr.data,
-                    value = i > 0 ? curr.totale_casi - list[i - 1].totale_casi : curr.totale_casi,
+                    value = curr.nuovi_positivi,
                     lbl = curr.data.ToString("dd/MM/yy")
                 }
                 )
                 .ToList();
         }
-        internal static List<ReturnData> FillWeeklyCases(int region, int county)
+        internal static List<ReturnData> FillWeeklyCases(int region, int county, DateTime dateFrom, DateTime dateTo)
         {
-            return FillDailyCases(region, county)
+            return FillDailyCases(region, county, dateFrom, dateTo)
                 .GroupBy(g => $"{g.data.Year}-{myCal.GetWeekOfYear(g.data, myCWR, myFirstDOW)}")
                 .Select((s) => new ReturnData
                 {
                     data = s.Max(f => f.data),
-                    lbl = s.Max(f => f.data).ToString("dd/MM/yy"),
+                    lbl = $"{s.Min(f => f.data).ToString("dd/MM/yy")} - {s.Max(f => f.data).ToString("dd/MM/yy")}",
                     value = s.Sum(c => c.value)
                 }
                 )
                 .ToList();
         }
 
-        internal static List<ReturnData> FillTotalyCases(int region, int county)
+        internal static List<ReturnData> FillTotalyCases(int region, int county, DateTime dateFrom, DateTime dateTo)
         {
-            return DataReaderCounty.ReadCountyData(region, county)
+            return DataReaderCounty.ReadCountyData(region, county, dateFrom, dateTo)
                 .OrderBy(d => d.data)
                 .Select((s) => new ReturnData
                 {

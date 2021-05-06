@@ -139,7 +139,7 @@ namespace WPFCovidItalyAnalizer.Library
                 .Select((s) => new ReturnData
                 {
                     data = s.Max(f => f.data),
-                    lbl = s.Max(f => f.data).ToString("dd/MM/yy"),
+                    lbl = $"{s.Min(f => f.data).ToString("dd/MM/yy")} - {s.Max(f => f.data).ToString("dd/MM/yy")}",
                     value = s.Sum(c => c.value)
                 }
                 )
@@ -153,7 +153,7 @@ namespace WPFCovidItalyAnalizer.Library
                 .Select((s) => new ReturnData
                 {
                     data = s.Max(f => f.data),
-                    lbl = s.Max(f => f.data).ToString("dd/MM/yy"),
+                    lbl = $"{s.Min(f => f.data).ToString("dd/MM/yy")} - {s.Max(f => f.data).ToString("dd/MM/yy")}",
                     value = s.Sum(c => c.value)
                 }
                 )
@@ -167,7 +167,7 @@ namespace WPFCovidItalyAnalizer.Library
                 .Select((s) => new ReturnData
                 {
                     data = s.Max(f => f.data),
-                    lbl = s.Max(f => f.data).ToString("dd/MM/yy"),
+                    lbl = $"{s.Min(f => f.data).ToString("dd/MM/yy")} - {s.Max(f => f.data).ToString("dd/MM/yy")}",
                     value = s.Sum(c => c.value)
                 }
                 )
@@ -233,21 +233,21 @@ namespace WPFCovidItalyAnalizer.Library
                 .ToList();
         }
 
-        public static List<ReturnData> FillRegionDifferentsWithFunction(int region, Func<RegionData, float> func)
-        {
-            List<RegionData> list = DataReaderRegion.ReadRegionData(region)
-                .ToList();
+        //public static List<ReturnData> FillRegionDifferentsWithFunction(int region, Func<RegionData, float> func)
+        //{
+        //    List<RegionData> list = DataReaderRegion.ReadRegionData(region)
+        //        .ToList();
 
-            return list
-                .Select((curr, i) => new ReturnData()
-                {
-                    data = curr.data,
-                    value = i > 1 ? (func?.Invoke(curr) ?? 0F) - (func?.Invoke(list[i - 1]) ?? 0F) : func?.Invoke(curr) ?? 0F,
-                    lbl = curr.data.ToString("dd/MM/yy")
-                }
-                )
-                .ToList();
-        }
+        //    return list
+        //        .Select((curr, i) => new ReturnData()
+        //        {
+        //            data = curr.data,
+        //            value = i > 1 ? (func?.Invoke(curr) ?? 0F) - (func?.Invoke(list[i - 1]) ?? 0F) : func?.Invoke(curr) ?? 0F,
+        //            lbl = curr.data.ToString("dd/MM/yy")
+        //        }
+        //        )
+        //        .ToList();
+        //}
 
         public static List<ReturnData> FillRegionWithFunction(int region, DateTime dateFrom, DateTime dateTo, Func<RegionData, float> func)
         {
