@@ -46,7 +46,7 @@ namespace WPFCovidItalyAnalizer.Library
             return FillRegionWithFunction(region, dateFrom, dateTo, p => p.nuovi_positivi);
         }
 
-        internal static List<ReturnData> FillTotalRegionCasesAtDate(DateTime date, int top)
+        internal static List<ReturnData> FillTotalRegionCasesAtDate(DateTime date)
         {
             return DataReaderRegion
                 .ReadRegionsAtDate(date)
@@ -57,11 +57,10 @@ namespace WPFCovidItalyAnalizer.Library
                     lbl = curr.denominazione_regione
                 })
                 .OrderByDescending(v => v.value)
-                .Take(top)
                 .ToList();
         }
 
-        internal static List<ReturnData> FillRangeData(DateTime dateFrom, DateTime dateTo, int top, Func<RegionData, float> func)
+        internal static List<ReturnData> FillRangeData(DateTime dateFrom, DateTime dateTo,  Func<RegionData, float> func)
         {
             return dateFrom.Date == dateTo.Date
                 ? DataReaderRegion
@@ -73,7 +72,6 @@ namespace WPFCovidItalyAnalizer.Library
                         lbl = curr.denominazione_regione
                     })
                     .OrderByDescending(v => v.value)
-                    .Take(top)
                     .ToList()
                 : DataReaderRegion
                     .ReadRegionsAtRangeDate(dateFrom, dateTo)
@@ -85,11 +83,10 @@ namespace WPFCovidItalyAnalizer.Library
                         lbl = curr.Max(r => r.denominazione_regione)
                     })
                     .OrderByDescending(v => v.value)
-                    .Take(top)
                     .ToList();
         }
 
-        internal static Dictionary<int, List<ReturnData>> FillRangeDataDiff(DateTime dateFrom, DateTime dateTo, int top, Func<RegionData, float> func)
+        internal static Dictionary<int, List<ReturnData>> FillRangeDataDiff(DateTime dateFrom, DateTime dateTo, Func<RegionData, float> func)
         {
             var list = dateFrom.Date == dateTo.Date
                 ? DataReaderRegion
@@ -104,7 +101,7 @@ namespace WPFCovidItalyAnalizer.Library
         }
 
 
-        internal static List<ReturnData> FillRangeDataInhabitants(DateTime dateFrom, DateTime dateTo, int top, Func<RegionData, float> func)
+        internal static List<ReturnData> FillRangeDataInhabitants(DateTime dateFrom, DateTime dateTo,  Func<RegionData, float> func)
         {
             return dateFrom.Date == dateTo.Date
                 ? DataReaderRegion
@@ -116,7 +113,6 @@ namespace WPFCovidItalyAnalizer.Library
                         lbl = curr.denominazione_regione
                     })
                     .OrderByDescending(v => v.value)
-                    .Take(top)
                     .ToList()
                 : DataReaderRegion
                     .ReadRegionsAtRangeDate(dateFrom, dateTo)
@@ -128,7 +124,6 @@ namespace WPFCovidItalyAnalizer.Library
                         lbl = curr.Max(r => r.denominazione_regione)
                     })
                     .OrderByDescending(v => v.value)
-                    .Take(top)
                     .ToList();
         }
 

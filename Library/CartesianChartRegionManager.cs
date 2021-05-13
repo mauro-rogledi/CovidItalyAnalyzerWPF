@@ -27,6 +27,8 @@ namespace WPFCovidItalyAnalizer.Library
 
         private readonly Dictionary<string, Action<int, string>> ChartAvailable = new Dictionary<string, Action<int, string>>();
 
+        public event EventHandler<string> UpdateTitle;
+
         public CartesianChartRegionManager(Chart chart)
         {
             this.chart = chart as CartesianChart;

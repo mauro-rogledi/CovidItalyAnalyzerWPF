@@ -13,21 +13,32 @@ using System.Threading.Tasks;
 
 namespace WPFCovidItalyAnalizer.Library
 {
-    public class PieChartItalyManager
+    public class PieChartItalyManager :IChartManager
     {
-        private CultureInfo myCI;
-        private Calendar myCal;
-        private CalendarWeekRule myCWR;
-        private DayOfWeek myFirstDOW;
-        private PieChart chart;
+        private readonly CultureInfo myCI;
+        private readonly Calendar myCal;
+        private readonly CalendarWeekRule myCWR;
+        private readonly DayOfWeek myFirstDOW;
+        private readonly PieChart chart;
 
         public Func<DateTime> FromDate { get; set; }
         public Func<DateTime> ToDate { get; set; }
-        public Func<ComboData> Top { get; set; }
+        public Func<ComboData> Region { get; set; }
+        public Func<ComboData> County { get; set; }
 
         private readonly Dictionary<string, Action> ChartAvailable = new Dictionary<string, Action>();
 
-        public string Title { get; private set; }
+        public event EventHandler<string> UpdateTitle;
+
+        private string title;
+        public string Title
+        {
+            get => title;
+            set
+            {
+                UpdateTitle?.Invoke(this, value);
+            }
+        }
 
         public PieChartItalyManager(PieChart chart)
         {
@@ -50,11 +61,10 @@ namespace WPFCovidItalyAnalizer.Library
         {
             var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
             var dateTo = ToDate?.Invoke() ?? DateTime.Today;
-            var top = Top?.Invoke()?.value ?? 5;
             var title = Properties.Resources.RelationshipCasesSwabs;
 
-            var swab = DataExtractorRegion.FillRangeData(dateFrom, dateTo, 100, p => p.nuovi_tamponi_test_molecolare).OrderBy(p => p.lbl);
-            var cases = DataExtractorRegion.FillRangeData(dateFrom, dateTo, 100, p => p.nuovi_positivi).OrderBy(p => p.lbl);
+            var swab = DataExtractorRegion.FillRangeData(dateFrom, dateTo, p => p.nuovi_tamponi_test_molecolare).OrderBy(p => p.lbl);
+            var cases = DataExtractorRegion.FillRangeData(dateFrom, dateTo, p => p.nuovi_positivi).OrderBy(p => p.lbl);
 
             var data = cases.Zip(swab, (c, s) => new ReturnData()
             {
@@ -63,7 +73,6 @@ namespace WPFCovidItalyAnalizer.Library
                 value = c.value / s.value
             })
             .OrderByDescending(o => o.value)
-            .Take(top)
             .ToList();
 
             Title = dateFrom.Date == dateTo.Date
@@ -95,7 +104,7 @@ namespace WPFCovidItalyAnalizer.Library
                 .ToArray();
         }
 
-        internal void SetChart(string chart)
+        public void SetChart(string chart, int region, int county, string display)
         {
             if (ChartAvailable.ContainsKey(chart))
                 ChartAvailable[chart]?.Invoke();
@@ -105,12 +114,11 @@ namespace WPFCovidItalyAnalizer.Library
         {
             var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
             var dateTo = ToDate?.Invoke() ?? DateTime.Today;
-            var top = Top?.Invoke()?.value ?? 5;
-            var data = DataExtractorRegion.FillRangeData(dateFrom, dateTo, top, dataToExtract);
+            var data = DataExtractorRegion.FillRangeData(dateFrom, dateTo, dataToExtract);
 
             Title = dateFrom.Date == dateTo.Date
                     ? $"{title} {dateFrom.Date.ToShortDateString()}"
-                    : $"{title} {Properties.Resources.BetweenDate} {dateFrom.Date:dd/MM/yy} {{Properties.Resources.And}} {dateTo.Date:dd/MM/yy)}";
+                    : $"{title} {Properties.Resources.BetweenDate} {dateFrom.Date:dd/MM/yy} {Properties.Resources.And} {dateTo.Date:dd/MM/yy}";
 
             Func<ChartPoint, string> labelPoint = chartPoint =>
                 string.Format("{0}", chartPoint.Y.ToString("N0"));
@@ -135,8 +143,7 @@ namespace WPFCovidItalyAnalizer.Library
         {
             var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
             var dateTo = ToDate?.Invoke() ?? DateTime.Today;
-            var top = Top?.Invoke()?.value ?? 5;
-            var data = DataExtractorRegion.FillRangeDataInhabitants(dateFrom, dateTo, top, dataToExtract);
+            var data = DataExtractorRegion.FillRangeDataInhabitants(dateFrom, dateTo, dataToExtract);
 
             Title = dateFrom.Date == dateTo.Date
                     ? $"{title} {dateFrom.Date.ToShortDateString()}"

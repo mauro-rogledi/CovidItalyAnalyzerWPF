@@ -5,46 +5,33 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPFCovidItalyAnalizer.Control"
              xmlns:prop="clr-namespace:WPFCovidItalyAnalizer.Properties"
+             xmlns:vm="clr-namespace:WPFCovidItalyAnalizer.ViewModel"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="500" 
+             FontSize="14"
+             d:DesignHeight="300" d:DesignWidth="870" 
              d:DataContext="{d:DesignInstance local:PieChartItalyControl}">
 
-    <Grid DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=1,AncestorType=UserControl}}">
+    <UserControl.DataContext>
+        <vm:ChartViewModel/>
+    </UserControl.DataContext>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#FFF3F3F3">
-            <Label Content="Dal"
-                   FontSize="14"
-                   Margin="5"/>
-            <DatePicker x:Name="dtpFrom" FontSize="14" Margin="5" SelectedDateFormat="Short" SelectedDate="{Binding DateFrom, StringFormat='yyyy'}" />
-            <Label Content="al"
-                   FontSize="14"
-                   Margin="5"/>
-            <DatePicker FontSize="14" Margin="5" SelectedDate="{Binding DateTo, StringFormat=dd/MM/yyyy}"/>
             <Label Content="{x:Static prop:Resources.Chart}"
-                   FontSize="14"
                    Margin="5"/>
-            <ComboBox ItemsSource="{Binding ChartDatas}"
+            <ComboBox ItemsSource="{Binding ChartAvailable}"
                       SelectedValue="{Binding ChartSelected}"
                       Margin="5"
-                      Width="220"
-                      FontSize="14"></ComboBox>
-            <Label Content="Max"
-                   FontSize="14"
-                   Margin="5"/>
-            <ComboBox ItemsSource="{Binding Path=TopData }"
-                      SelectedValue="{Binding TopSelected}"
-                      Width="60" FontSize="10" Margin="5">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding display}" FontSize="14"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+                      Width="260"/>
+
+            <local:DateRangeControl 
+                DateFrom="{Binding DateFrom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                DateTo="{Binding DateTo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
 
         <Label Grid.Row="1" Content="{Binding PieTitle}" HorizontalAlignment="Center" FontSize="18"/>

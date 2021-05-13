@@ -19,5 +19,7 @@ namespace WPFCovidItalyAnalizer.Library
         string[] GetChartAvailable();
 
         void SetChart(string chart, int region, int county, string display);
+
+        event EventHandler<string> UpdateTitle;
     }
 }

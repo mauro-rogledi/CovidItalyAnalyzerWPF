@@ -19,6 +19,7 @@ namespace WPFCovidItalyAnalizer.ViewModel
         public ObservableCollection<string> ChartAvailable { get; set; } = new ObservableCollection<string>();
         public ObservableCollection<ComboData> RegionDatas { get; set; } = new ObservableCollection<ComboData>();
         public ObservableCollection<ComboData> CountyDatas { get; set; } = new ObservableCollection<ComboData>();
+        public ObservableCollection<ComboData> TopData { get; set; } = new ObservableCollection<ComboData>();
 
         private ComboData regionSelected;
 
@@ -30,9 +31,25 @@ namespace WPFCovidItalyAnalizer.ViewModel
             this.chartManager.FromDate = () => dateFrom;
             this.chartManager.ToDate = () => dateTo;
 
+            this.chartManager.UpdateTitle += ChartManager_UpdateTitle;
+
             ChartAvailable.Clear();
             chartManager.GetChartAvailable().ToList().ForEach(e => { ChartAvailable.Add(e); });
         }
+
+        private void ChartManager_UpdateTitle(object sender, string title)
+        {
+            PieTitle = title;
+        }
+
+        private string pieTitle;
+
+        public string PieTitle
+        {
+            get { return pieTitle; }
+            set { SetValue<string>(ref pieTitle, value); }
+        }
+
 
         public ComboData RegionSelected
         {
@@ -79,10 +96,22 @@ namespace WPFCovidItalyAnalizer.ViewModel
             }
         }
 
+        private ComboData topSelected;
+
+        public ComboData TopSelected
+        {
+            get { return topSelected; }
+            set
+            {
+                topSelected = value;
+                RefreshChart();
+            }
+        }
+
         private void RefreshChart()
         {
-            if (!string.IsNullOrEmpty(chartSelected) && regionSelected != null)
-                chartManager.SetChart(chartSelected, regionSelected.value, countySelected?.value ?? 0, regionSelected.display);
+            if (!string.IsNullOrEmpty(chartSelected))
+                chartManager.SetChart(chartSelected, regionSelected?.value ??0, countySelected?.value ?? 0, regionSelected?.display ??"");
         }
 
         private DateTime dateFrom;
@@ -118,6 +147,16 @@ namespace WPFCovidItalyAnalizer.ViewModel
             {
                 RegionDatas.Add(e);
             });
+
+
+            int numRegion = DataReaderRegion.ReadRegions().Count();
+            TopData.Add(new ComboData() { display = "5", value = 5 });
+            TopData.Add(new ComboData() { display = "10", value = 10 });
+            TopData.Add(new ComboData() { display = "15", value = 15 });
+            TopData.Add(new ComboData() { display = "Tutti", value = numRegion });
+
+            TopSelected = TopData[0];
+
         }
 
     }
