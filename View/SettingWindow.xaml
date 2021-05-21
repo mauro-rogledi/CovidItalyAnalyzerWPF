@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPFCovidItalyAnalizer.View"
         xmlns:vm="clr-namespace:WPFCovidItalyAnalizer.ViewModel"
         mc:Ignorable="d" 
-        Height="175" 
+        Height="196" 
         Width="620"
         ResizeMode="NoResize"
         ShowInTaskbar="False"
@@ -65,6 +65,7 @@
             <CheckBox Content="Tieni una copia locale dei dati" FontSize="14" IsChecked="{Binding KeepData}"/>
             <Label Content="Cartella Dati" FontSize="14" FontWeight="Bold"></Label>
             <Label MouseLeftButtonUp="TextBlock_MouseLeftButtonUp" Content="{Binding Folder}"  FontSize="14" FontStyle="Italic"/>
+            <CheckBox Content="Ricorda ultime impostazioni" FontSize="14" IsChecked="{Binding RememberLastData}"/>
         </StackPanel>
 
         <DockPanel Grid.Row="1">

@@ -22,7 +22,7 @@ namespace WPFCovidItalyAnalizer.View
     /// </summary>
     public partial class SettingWindow : Window
     {
-        SettingVM settingVM;
+        readonly SettingVM settingVM;
 
         public SettingWindow()
         {

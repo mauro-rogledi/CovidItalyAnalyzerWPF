@@ -59,7 +59,14 @@ namespace WPFCovidItalyAnalizer.ViewModel
                 SetValue<ComboData>(ref regionSelected, value);
                 RefreshCounty();
                 RefreshChart();
+                WriteRegionSetting();
             }
+        }
+
+        private void WriteRegionSetting()
+        {
+            if (SettingManager.RememberLastData)
+                SettingManager.Region = regionSelected?.value ?? 0;
         }
 
         private void RefreshCounty()
@@ -70,6 +77,9 @@ namespace WPFCovidItalyAnalizer.ViewModel
                 .Select(r => new ComboData() { value = r.codice_provincia, display = r.denominazione_provincia })
                 .ToList()
                 .ForEach((e) => { CountyDatas.Add(e); });
+
+            if (SettingManager.RememberLastData)
+                CountySelected = CountyDatas.FirstOrDefault((c) => c.value == SettingManager.County);
         }
 
         private string chartSelected;
@@ -91,9 +101,16 @@ namespace WPFCovidItalyAnalizer.ViewModel
             get { return countySelected; }
             set
             {
-                countySelected = value;
+                SetValue<ComboData>(ref countySelected, value);
                 RefreshChart();
+                WriteCountySetting();
             }
+        }
+
+        private void WriteCountySetting()
+        {
+            if (SettingManager.RememberLastData)
+                SettingManager.County = countySelected?.value ?? 0;
         }
 
         private ComboData topSelected;
@@ -147,6 +164,9 @@ namespace WPFCovidItalyAnalizer.ViewModel
             {
                 RegionDatas.Add(e);
             });
+
+            if (SettingManager.RememberLastData)
+                RegionSelected = RegionDatas.FirstOrDefault((c) => c.value == SettingManager.Region);
 
 
             int numRegion = DataReaderRegion.ReadRegions().Count();

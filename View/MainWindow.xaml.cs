@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,6 +75,14 @@ namespace WPFCovidItalyAnalizer
             CartesianRegion.Refresh();
             PieChartItaly.Refresh();
             CartesianCounty.Refresh();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            if (SettingManager.RememberLastData)
+                SettingManager.SaveData();
+
+            base.OnClosing(e);
         }
     }
 }

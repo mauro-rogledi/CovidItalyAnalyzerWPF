@@ -25,13 +25,24 @@ namespace WPFCovidItalyAnalizer.ViewModel
         public bool KeepData
         {
             get { return keepData; }
-            set { keepData = value; }
+            set { SetValue<bool>(ref keepData, value); }
         }
+
+        private bool rememberLastData;
+
+        public bool RememberLastData
+        {
+            get { return rememberLastData; }
+            set { SetValue<bool>(ref rememberLastData, value); }
+        }
+
 
         public SettingVM()
         {
             KeepData = SettingManager.KeepACopy;
             folderData = SettingManager.FolderData;
+            rememberLastData = SettingManager.RememberLastData;
+
             if (folderData==string.Empty)
                 folderData = waterMark;
         }
@@ -40,6 +51,7 @@ namespace WPFCovidItalyAnalizer.ViewModel
         {
             SettingManager.KeepACopy = KeepData;
             SettingManager.FolderData = folderData == waterMark ? string.Empty : folderData;
+            SettingManager.RememberLastData = RememberLastData;
             SettingManager.SaveData();
         }
     }
