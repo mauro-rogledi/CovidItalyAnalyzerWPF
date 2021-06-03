@@ -31,7 +31,10 @@
 
             <local:DateRangeControl 
                 DateFrom="{Binding DateFrom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                DateTo="{Binding DateTo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                DateTo="{Binding DateTo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                DisplayDateStart="{Binding DisplayDateFrom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                DisplayDateEnd="{Binding DisplayDateEnd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                />
         </StackPanel>
 
         <Label Grid.Row="1" Content="{Binding PieTitle}" HorizontalAlignment="Center" FontSize="18"/>

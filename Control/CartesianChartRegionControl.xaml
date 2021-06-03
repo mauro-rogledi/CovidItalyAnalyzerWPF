@@ -37,7 +37,10 @@
                       Width="260"/>
             <local:DateRangeControl 
                 DateFrom="{Binding DateFrom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                DateTo="{Binding DateTo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                DateTo="{Binding DateTo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                DisplayDateStart="{Binding DisplayDateFrom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                DisplayDateEnd="{Binding DisplayDateEnd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                />
         </StackPanel>
         <lvc:CartesianChart x:Name="CartesianChart" Grid.Row="1" 
                             FontWeight="Bold">

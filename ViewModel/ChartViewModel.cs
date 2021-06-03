@@ -19,7 +19,6 @@ namespace WPFCovidItalyAnalizer.ViewModel
         public ObservableCollection<string> ChartAvailable { get; set; } = new ObservableCollection<string>();
         public ObservableCollection<ComboData> RegionDatas { get; set; } = new ObservableCollection<ComboData>();
         public ObservableCollection<ComboData> CountyDatas { get; set; } = new ObservableCollection<ComboData>();
-        public ObservableCollection<ComboData> TopData { get; set; } = new ObservableCollection<ComboData>();
 
         private ComboData regionSelected;
 
@@ -147,6 +146,23 @@ namespace WPFCovidItalyAnalizer.ViewModel
             set { SetValue<DateTime>(ref dateTo, value); RefreshChart(); }
         }
 
+
+        private DateTime displayDateFrom;
+
+        public DateTime DisplayDateFrom
+        {
+            get { return displayDateFrom; }
+            set { SetValue<DateTime>(ref displayDateFrom, value); }
+        }
+
+        private DateTime displayDateEnd;
+
+        public DateTime DisplayDateEnd
+        {
+            get { return displayDateEnd; }
+            set { SetValue<DateTime>(ref displayDateEnd, value);}
+        }
+
         public ChartViewModel()
         {
             DateFrom = new DateTime(2020, 2, 28);
@@ -168,15 +184,17 @@ namespace WPFCovidItalyAnalizer.ViewModel
             if (SettingManager.RememberLastData)
                 RegionSelected = RegionDatas.FirstOrDefault((c) => c.value == SettingManager.Region);
 
+            DisplayDateFrom = DateFrom = DataReaderRegion
+                .ReadRegionData(1)
+                .OrderBy(x =>x.data)
+                .Select(x => x.data)
+                .First();
 
-            int numRegion = DataReaderRegion.ReadRegions().Count();
-            TopData.Add(new ComboData() { display = "5", value = 5 });
-            TopData.Add(new ComboData() { display = "10", value = 10 });
-            TopData.Add(new ComboData() { display = "15", value = 15 });
-            TopData.Add(new ComboData() { display = "Tutti", value = numRegion });
-
-            TopSelected = TopData[0];
-
+            DisplayDateEnd = DateTo = DataReaderRegion
+                .ReadRegionData(1)
+                .OrderByDescending(x => x.data)
+                .Select(x => x.data)
+                .First();
         }
 
     }

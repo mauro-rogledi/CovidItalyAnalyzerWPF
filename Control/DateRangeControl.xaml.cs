@@ -26,6 +26,8 @@ namespace WPFCovidItalyAnalizer.Control
     /// </summary>
     public partial class DateRangeControl : UserControl
     {
+
+        private DateTime Today = DateTime.Today;
         public ObservableCollection<ComboData> RangeType { get; set; } = new ObservableCollection<ComboData>();
 
         public DateRangeControl()
@@ -34,12 +36,6 @@ namespace WPFCovidItalyAnalizer.Control
             ComboHelper.FillComboWithEnum<DateRange>(RangeType, (DateRange x) => true);
             range.ItemsSource = RangeType;
             range.SelectedItem = RangeType.Where(x => x.value == (int)DateRange.AllDate).FirstOrDefault();
-
-            dateFrom.SelectedDate = new DateTime(2020,2,28);
-            dateTo.SelectedDate = DateTime.Today;
-
-            dateFrom.DisplayDateEnd = DateTime.Today;
-            dateTo.DisplayDateEnd = DateTime.Today;
 
             Thread.CurrentThread.CurrentCulture = (CultureInfo)Thread.CurrentThread.CurrentCulture.Clone();
             if (Thread.CurrentThread.CurrentCulture.Name == "it-IT")
@@ -78,6 +74,39 @@ namespace WPFCovidItalyAnalizer.Control
             dateTo.SelectedDate = DateTo;
         }
 
+        public DateTime? DisplayDateStart
+        {
+            get { return (DateTime)GetValue(DisplayDateStartProperty); }
+            set { SetValue(DisplayDateStartProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for DisplayDateStart.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DisplayDateStartProperty =
+            DependencyProperty.Register("DisplayDateStart", typeof(DateTime), typeof(DateRangeControl), new PropertyMetadata(DateTime.Today, (o, a) => (o as DateRangeControl).OnDisplayDateStartChanged()));
+
+        private void OnDisplayDateStartChanged()
+        {
+            dateFrom.DisplayDateStart = DisplayDateStart;
+            dateTo.DisplayDateStart = DisplayDateStart;
+        }
+
+        public DateTime? DisplayDateEnd
+        {
+            get { return (DateTime)GetValue(DisplayDateEndProperty); }
+            set { SetValue(DisplayDateEndProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for DisplayDateStart.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DisplayDateEndProperty =
+            DependencyProperty.Register("DisplayDateEnd", typeof(DateTime), typeof(DateRangeControl), new PropertyMetadata(DateTime.Today, (o, a) => (o as DateRangeControl).OnDisplayDateEndChanged()));
+
+        private void OnDisplayDateEndChanged()
+        {
+            dateFrom.DisplayDateEnd = DisplayDateEnd;
+            dateTo.DisplayDateEnd = DisplayDateEnd;
+            Today = DisplayDateEnd ?? DateTime.Today;
+        }
+
         private void dateFrom_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             DateFrom = dateFrom.SelectedDate;
@@ -99,48 +128,48 @@ namespace WPFCovidItalyAnalizer.Control
             switch (selectedValue)
             {
                 case DateRange.Today:
-                    DateFrom = DateTime.Today;
-                    DateTo = DateTime.Today;
+                    DateFrom = Today;
+                    DateTo = Today;
                     break;
                 case DateRange.ThisWeek:
-                    DateTo = DateTime.Today;
-                    DateFrom = DateTime.Today.StartOfWeek(DayOfWeek.Monday);
+                    DateTo = Today;
+                    DateFrom = Today.StartOfWeek(DayOfWeek.Monday);
                     break;
                 case DateRange.LastSevenDays:
-                    DateTo = DateTime.Today;
+                    DateTo = Today;
                     DateFrom = DateTo?.AddDays(-6);
                     break;
                 case DateRange.LastTwoWeeks:
-                    DateTo = DateTime.Today;
-                    DateFrom = DateTime.Today.StartOfWeek(DayOfWeek.Monday).AddDays(-7);
+                    DateTo = Today;
+                    DateFrom = Today.StartOfWeek(DayOfWeek.Monday).AddDays(-7);
                     break;
                 case DateRange.ThisMonth:
-                    DateTo = DateTime.Today;
+                    DateTo = Today;
                     DateFrom = new DateTime(dateto.Year, dateto.Month, 1);
                     break;
                 case DateRange.LastThirtyDays:
-                    DateTo = DateTime.Today;
+                    DateTo = Today;
                     DateFrom = DateTo?.AddDays(-30);
                     break;
                 case DateRange.LastTwoMonths:
-                    DateTo = DateTime.Today;
+                    DateTo = Today;
                     DateFrom = new DateTime(dateto.Year, dateto.Month, 1).AddMonths(-1);
                     break;
                 case DateRange.LastThreeMonths:
-                    DateTo = DateTime.Today;
+                    DateTo = Today;
                     DateFrom = new DateTime(dateto.Year, dateto.Month, 1).AddMonths(-2);
                     break;
                 case DateRange.LastSixMonths:
-                    DateTo = DateTime.Today;
+                    DateTo = Today;
                     DateFrom = new DateTime(dateto.Year, dateto.Month, 1).AddMonths(-5);
                     break;
                 case DateRange.LastYear:
-                    DateTo = DateTime.Today;
+                    DateTo = Today;
                     DateFrom = dateto.AddYears(-1);
                     break;
                 case DateRange.AllDate:
-                    DateFrom = new DateTime(2020, 2, 24);
-                    DateTo = DateTime.Today;
+                    DateFrom = dateFrom.DisplayDateStart;
+                    DateTo = Today;
                     break;
             }
         }
