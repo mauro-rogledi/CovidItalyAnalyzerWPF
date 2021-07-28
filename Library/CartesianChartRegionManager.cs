@@ -67,7 +67,7 @@ namespace WPFCovidItalyAnalizer.Library
 
             var intesiveCare = DataExtractorRegion.FillIntensiveCare(region, dateFrom, dateTo);
             var withSyntoms = DataExtractorRegion.FillWithSymptoms(region, dateFrom, dateTo);
-            var dailyCases = DataExtractorRegion.FillDailyCases(region, dateFrom, dateTo);
+            var homeCases = DataExtractorRegion.FillCasesToHome(region, dateFrom, dateTo);
 
             chart.LegendLocation = LegendLocation.Top;
             chart.DataContext = null;
@@ -76,8 +76,8 @@ namespace WPFCovidItalyAnalizer.Library
             {
                 new StackedAreaSeries
                 {
-                    Title = Properties.Resources.DailyCases,
-                    Values = new ChartValues<DateTimePoint>(dailyCases.Select(s => new DateTimePoint(s.data, s.value))),
+                    Title = Properties.Resources.HomeIsolation,
+                    Values = new ChartValues<DateTimePoint>(homeCases.Select(s => new DateTimePoint(s.data, s.value))),
                 },
                 new StackedAreaSeries
                 {

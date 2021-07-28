@@ -183,6 +183,9 @@
   <data name="GitUpToDate" xml:space="preserve">
     <value>The data is already up to date</value>
   </data>
+  <data name="HomeIsolation" xml:space="preserve">
+    <value>Home isolation</value>
+  </data>
   <data name="Hospital" xml:space="preserve">
     <value>Hospital</value>
   </data>

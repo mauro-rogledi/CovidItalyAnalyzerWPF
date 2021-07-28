@@ -259,6 +259,15 @@ namespace WPFCovidItalyAnalizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Home isolation.
+        /// </summary>
+        public static string HomeIsolation {
+            get {
+                return ResourceManager.GetString("HomeIsolation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hospital.
         /// </summary>
         public static string Hospital {

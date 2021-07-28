@@ -51,6 +51,16 @@ namespace WPFCovidItalyAnalizer.Library
             return FillRegionWithFunction(region, dateFrom, dateTo, p => p.nuovi_positivi);
         }
 
+        public static List<ReturnData> FillTotalCases(int region, DateTime dateFrom, DateTime dateTo)
+        {
+            return FillRegionWithFunction(region, dateFrom, dateTo, p => p.totale_positivi);
+        }
+
+        public static List<ReturnData> FillCasesToHome(int region, DateTime dateFrom, DateTime dateTo)
+        {
+            return FillRegionWithFunction(region, dateFrom, dateTo, p => p.isolamento_domiciliare);
+        }
+
         internal static List<ReturnData> FillTotalRegionCasesAtDate(DateTime date)
         {
             return DataReaderRegion
