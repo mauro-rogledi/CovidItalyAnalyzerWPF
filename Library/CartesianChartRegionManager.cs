@@ -1,4 +1,5 @@
 ﻿using LiveCharts;
+using LiveCharts.Defaults;
 using LiveCharts.Definitions.Series;
 using LiveCharts.Wpf;
 using LiveCharts.Wpf.Charts.Base;
@@ -7,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Windows.Media;
 
 using WPFCovidItalyAnalizer.Model;
 
@@ -37,6 +39,7 @@ namespace WPFCovidItalyAnalizer.Library
             myCWR = myCI.DateTimeFormat.CalendarWeekRule;
             myFirstDOW = myCI.DateTimeFormat.FirstDayOfWeek;
 
+            ChartAvailable.Add(Properties.Resources.CurrentCases, (int r, string s) => FillChartWithCurrentCases(r, s));
             ChartAvailable.Add(Properties.Resources.DailyCases, (int r, string s) => FillChartWitNewPositives(r, s));
             ChartAvailable.Add(Properties.Resources.DailySwabs, (int r, string s) => FillChartWitDailySwabs(r, s));
             ChartAvailable.Add(Properties.Resources.DailyCasesSwabs, (int r, string s) => FillChartWithDailySwabCases(r, s));
@@ -49,6 +52,59 @@ namespace WPFCovidItalyAnalizer.Library
             ChartAvailable.Add(Properties.Resources.IntensiveCare, (int r, string s) => FillChartWitIntensiveCare(r, s));
             ChartAvailable.Add(Properties.Resources.Hospital, (int r, string s) => FillChartWitHospital(r, s));
             ChartAvailable.Add(Properties.Resources.WeeklyCasesInhabitant, (int r, string s) => FillChartWithWeeklyCasesInabitant(r, s));
+        }
+
+        Func<double, string> prova = val =>
+        {
+            System.Diagnostics.Debug.WriteLine(val);
+            return val.ToString();
+        };
+
+        private void FillChartWithCurrentCases(int region, string regionName)
+        {
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            var intesiveCare = DataExtractorRegion.FillIntensiveCare(region, dateFrom, dateTo);
+            var withSyntoms = DataExtractorRegion.FillWithSymptoms(region, dateFrom, dateTo);
+            var dailyCases = DataExtractorRegion.FillDailyCases(region, dateFrom, dateTo);
+
+            chart.LegendLocation = LegendLocation.Top;
+            chart.DataContext = null;
+
+            chart.Series = new SeriesCollection
+            {
+                new StackedAreaSeries
+                {
+                    Title = Properties.Resources.DailyCases,
+                    Values = new ChartValues<DateTimePoint>(dailyCases.Select(s => new DateTimePoint(s.data, s.value))),
+                },
+                new StackedAreaSeries
+                {
+                    Title = Properties.Resources.HospitalizedWithSymptoms,
+                    Values = new ChartValues<DateTimePoint>(withSyntoms.Select(s => new DateTimePoint(s.data, s.value))),
+                    Fill = new SolidColorBrush(Colors.Yellow)
+
+                },
+                new StackedAreaSeries
+                {
+                    Title = Properties.Resources.IntensiveCare,
+                    Values = new ChartValues<DateTimePoint>(intesiveCare.Select(s => new DateTimePoint(s.data, s.value))),
+                    Fill = new SolidColorBrush(Colors.Red)
+                }
+            };
+
+            chart.AxisX.Clear();
+            this.chart.AxisX.Add(new Axis
+            {
+                LabelFormatter = val => new DateTime((long)val).ToString("dd-MM-yyyy")
+            });
+
+            chart.AxisY.Clear();
+            chart.AxisY.Add(new Axis
+            {
+                LabelFormatter = value => value.ToString("N0")
+            });
         }
 
         public string[] GetChartAvailable()
@@ -337,16 +393,17 @@ namespace WPFCovidItalyAnalizer.Library
 
         private void FillChart(string titleSeries, string titleY, ISeriesView series, IList<string> label, int step)
         {
-            this.chart.Series.Clear();
-            this.chart.AxisX.Clear();
-            this.chart.AxisY.Clear();
+            CartesianChartRegionManager cartesianChartRegionManager = this;
+            cartesianChartRegionManager.chart.Series.Clear();
+            cartesianChartRegionManager.chart.AxisX.Clear();
+            cartesianChartRegionManager.chart.AxisY.Clear();
 
-            this.chart.Series = new SeriesCollection
+            cartesianChartRegionManager.chart.Series = new SeriesCollection
             {
                series
             };
 
-            this.chart.AxisX.Add(new Axis
+            cartesianChartRegionManager.chart.AxisX.Add(new Axis
             {
                 Labels = label,
                 LabelsRotation = 15,
@@ -357,15 +414,15 @@ namespace WPFCovidItalyAnalizer.Library
                 }
             });
 
-            this.chart.AxisY.Add(new Axis
+            cartesianChartRegionManager.chart.AxisY.Add(new Axis
             {
                 Title = titleY,
                 LabelFormatter = value => value.ToString("N0"),
                 MinValue = 0
             });
 
-            this.chart.LegendLocation = LegendLocation.Top;
-            this.chart.Zoom = ZoomingOptions.X;
+            cartesianChartRegionManager.chart.LegendLocation = LegendLocation.Top;
+            cartesianChartRegionManager.chart.Zoom = ZoomingOptions.X;
         }
     }
 }

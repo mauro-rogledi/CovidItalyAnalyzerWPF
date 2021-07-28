@@ -133,6 +133,15 @@ namespace WPFCovidItalyAnalizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current Cases.
+        /// </summary>
+        public static string CurrentCases {
+            get {
+                return ResourceManager.GetString("CurrentCases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Daily cases.
         /// </summary>
         public static string DailyCases {
@@ -255,6 +264,15 @@ namespace WPFCovidItalyAnalizer.Properties {
         public static string Hospital {
             get {
                 return ResourceManager.GetString("Hospital", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hospitalized.
+        /// </summary>
+        public static string HospitalizedWithSymptoms {
+            get {
+                return ResourceManager.GetString("HospitalizedWithSymptoms", resourceCulture);
             }
         }
         

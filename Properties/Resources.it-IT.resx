@@ -141,6 +141,9 @@
   <data name="County" xml:space="preserve">
     <value>Comune</value>
   </data>
+  <data name="CurrentCases" xml:space="preserve">
+    <value>Casi correnti</value>
+  </data>
   <data name="DailyCases" xml:space="preserve">
     <value>Casi giornalieri</value>
   </data>
@@ -181,6 +184,9 @@
     <value>I dati sono già aggiornati</value>
   </data>
   <data name="Hospital" xml:space="preserve">
+    <value>Ospedalizzati</value>
+  </data>
+  <data name="HospitalizedWithSymptoms" xml:space="preserve">
     <value>Ospedalizzati</value>
   </data>
   <data name="IntensiveCare" xml:space="preserve">

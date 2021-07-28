@@ -141,6 +141,9 @@
   <data name="County" xml:space="preserve">
     <value>County</value>
   </data>
+  <data name="CurrentCases" xml:space="preserve">
+    <value>Current Cases</value>
+  </data>
   <data name="DailyCases" xml:space="preserve">
     <value>Daily cases</value>
   </data>
@@ -182,6 +185,9 @@
   </data>
   <data name="Hospital" xml:space="preserve">
     <value>Hospital</value>
+  </data>
+  <data name="HospitalizedWithSymptoms" xml:space="preserve">
+    <value>Hospitalized</value>
   </data>
   <data name="IntensiveCare" xml:space="preserve">
     <value>Intensive Care</value>
