@@ -70,7 +70,7 @@ namespace WPFCovidItalyAnalizer.Library
             {
                 lbl = c.lbl,
                 data = c.data,
-                value = c.value / s.value
+                value = s.value != 0 ? c.value / s.value : 1
             })
             .OrderByDescending(o => o.value)
             .ToList();

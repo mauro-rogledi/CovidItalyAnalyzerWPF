@@ -268,7 +268,7 @@ namespace WPFCovidItalyAnalizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hospital.
+        ///   Looks up a localized string similar to Total hospitalized.
         /// </summary>
         public static string Hospital {
             get {

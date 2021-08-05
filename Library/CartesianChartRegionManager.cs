@@ -49,7 +49,7 @@ namespace WPFCovidItalyAnalizer.Library
             ChartAvailable.Add(Properties.Resources.WeeklyCasesSwabs, (int r, string s) => FillChartWithWeeklySwabCases(r, s));
             ChartAvailable.Add(Properties.Resources.WeeklyDeads, (int r, string s) => FillChartWithWeeklyDead(r, s));
             ChartAvailable.Add(Properties.Resources.TotalCases, (int r, string s) => FillChartWitTotalCases(r, s));
-            ChartAvailable.Add(Properties.Resources.IntensiveCare, (int r, string s) => FillChartWitIntensiveCare(r, s));
+            ChartAvailable.Add(Properties.Resources.HospitalizedWithSymptoms, (int r, string s) => FillChartWithCurrentHospital(r, s));
             ChartAvailable.Add(Properties.Resources.Hospital, (int r, string s) => FillChartWitHospital(r, s));
             ChartAvailable.Add(Properties.Resources.WeeklyCasesInhabitant, (int r, string s) => FillChartWithWeeklyCasesInabitant(r, s));
         }
@@ -107,12 +107,48 @@ namespace WPFCovidItalyAnalizer.Library
             });
         }
 
-        public string[] GetChartAvailable()
+        private void FillChartWithCurrentHospital(int region, string regionName)
         {
-            return ChartAvailable
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            var intesiveCare = DataExtractorRegion.FillIntensiveCare(region, dateFrom, dateTo);
+            var withSyntoms = DataExtractorRegion.FillWithSymptoms(region, dateFrom, dateTo);
+
+            chart.LegendLocation = LegendLocation.Top;
+            chart.DataContext = null;
+
+            chart.Series = new SeriesCollection
+            {
+                new StackedAreaSeries
+                {
+                    Title = Properties.Resources.HospitalizedWithSymptoms,
+                    Values = new ChartValues<DateTimePoint>(withSyntoms.Select(s => new DateTimePoint(s.data, s.value)))
+
+                },
+                new StackedAreaSeries
+                {
+                    Title = Properties.Resources.IntensiveCare,
+                    Values = new ChartValues<DateTimePoint>(intesiveCare.Select(s => new DateTimePoint(s.data, s.value)))
+                }
+            };
+
+            chart.AxisX.Clear();
+            this.chart.AxisX.Add(new Axis
+            {
+                LabelFormatter = val => new DateTime((long)val).ToString("dd-MM-yyyy")
+            });
+
+            chart.AxisY.Clear();
+            chart.AxisY.Add(new Axis
+            {
+                LabelFormatter = value => value.ToString("N0")
+            });
+        }
+
+        public string[] GetChartAvailable() => ChartAvailable
                 .Aggregate(new List<string>(), (acc, x) => { acc.Add(x.Key); return acc; })
                 .ToArray();
-        }
 
         public void SetChart(string chart, int region, int county, string display)
         {

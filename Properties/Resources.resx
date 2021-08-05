@@ -187,7 +187,7 @@
     <value>Home isolation</value>
   </data>
   <data name="Hospital" xml:space="preserve">
-    <value>Hospital</value>
+    <value>Total hospitalized</value>
   </data>
   <data name="HospitalizedWithSymptoms" xml:space="preserve">
     <value>Hospitalized</value>
