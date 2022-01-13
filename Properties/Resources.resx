@@ -123,6 +123,9 @@
   <data name="And" xml:space="preserve">
     <value>and</value>
   </data>
+  <data name="AverageHospital" xml:space="preserve">
+    <value>Average Hospitalized</value>
+  </data>
   <data name="BetweenDate" xml:space="preserve">
     <value>between date</value>
   </data>
@@ -282,6 +285,9 @@
   </data>
   <data name="WeeklyCases" xml:space="preserve">
     <value>Weekly cases</value>
+  </data>
+  <data name="WeeklyCasesHospital" xml:space="preserve">
+    <value>Total weekly cases and average hospitalized</value>
   </data>
   <data name="WeeklyCasesInhabitant" xml:space="preserve">
     <value>Weekly Cases for 100.000 Inabitant</value>

@@ -79,6 +79,15 @@ namespace WPFCovidItalyAnalizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Average Hospitalized.
+        /// </summary>
+        public static string AverageHospital {
+            get {
+                return ResourceManager.GetString("AverageHospital", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to between date.
         /// </summary>
         public static string BetweenDate {
@@ -554,6 +563,15 @@ namespace WPFCovidItalyAnalizer.Properties {
         public static string WeeklyCases {
             get {
                 return ResourceManager.GetString("WeeklyCases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total weekly cases and average hospitalized.
+        /// </summary>
+        public static string WeeklyCasesHospital {
+            get {
+                return ResourceManager.GetString("WeeklyCasesHospital", resourceCulture);
             }
         }
         

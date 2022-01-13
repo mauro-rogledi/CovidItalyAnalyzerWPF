@@ -184,6 +184,20 @@ namespace WPFCovidItalyAnalizer.Library
                 .ToList();
         }
 
+        public static List<ReturnData> FillWeeklyAverageHospital(int region, DateTime dateFrom, DateTime dateTo)
+        {
+            return FillHospital(region, dateFrom, dateTo)
+                .GroupBy(g => $"{g.data.StartOfWeek(DayOfWeek.Monday).Year}-{myCal.GetWeekOfYear(g.data, myCWR, myFirstDOW)}")
+                .Select((s) => new ReturnData
+                {
+                    data = s.Max(f => f.data),
+                    lbl = $"{s.Min(f => f.data).ToString("dd/MM/yy")} - {s.Max(f => f.data).ToString("dd/MM/yy")}",
+                    value = s.Average(c => c.value)
+                }
+                )
+                .ToList();
+        }
+
         //public static List<ReturnData> FillWeeklyHospital(int region)
         //{
         //    return FillDailyHos(region)

@@ -52,6 +52,7 @@ namespace WPFCovidItalyAnalizer.Library
             ChartAvailable.Add(Properties.Resources.HospitalizedWithSymptoms, (int r, string s) => FillChartWithCurrentHospital(r, s));
             ChartAvailable.Add(Properties.Resources.Hospital, (int r, string s) => FillChartWitHospital(r, s));
             ChartAvailable.Add(Properties.Resources.WeeklyCasesInhabitant, (int r, string s) => FillChartWithWeeklyCasesInabitant(r, s));
+            ChartAvailable.Add(Properties.Resources.WeeklyCasesHospital, (int r, string s) => FillChartWithWeeklyHospitalCases(r, s));
         }
 
         Func<double, string> prova = val =>
@@ -333,6 +334,73 @@ namespace WPFCovidItalyAnalizer.Library
             this.chart.LegendLocation = LegendLocation.Top;
             this.chart.Zoom = ZoomingOptions.X;
         }
+
+
+        public void FillChartWithWeeklyHospitalCases(int region, string regionName)
+        {
+            var dateFrom = FromDate?.Invoke() ?? DateTime.Today;
+            var dateTo = ToDate?.Invoke() ?? DateTime.Today;
+
+            var hospital = DataExtractorRegion.FillWeeklyAverageHospital(region, dateFrom, dateTo);
+            var cases = DataExtractorRegion.FillWeeklyCases(region, dateFrom, dateTo);
+
+            this.chart.Series.Clear();
+            this.chart.AxisX.Clear();
+            this.chart.AxisY.Clear();
+
+            this.chart.Series = new SeriesCollection
+            {
+                new ColumnSeries
+                {
+                    Title = $"{Properties.Resources.WeeklyCases} {regionName}",
+                    Values = new ChartValues<float>(cases.Select(s => s.value)),
+                    PointGeometry = DefaultGeometries.None,
+                    DataLabels = true,
+                    LabelPoint = point => point.Y.ToString("N0"),
+                    ScalesYAt = 0
+                },
+                new LineSeries
+                {
+                    Title = Properties.Resources.AverageHospital,
+                    Values = new ChartValues<float>(hospital.Select(s => s.value)),
+                    PointGeometry = DefaultGeometries.None,
+                    DataLabels = true,
+                    LabelPoint = point => point.Y.ToString("N0"),
+                    ScalesYAt = 0
+                }
+            };
+
+            this.chart.AxisX.Add(new Axis
+            {
+                Labels = hospital.Select(s => s.lbl).ToList(),
+                LabelsRotation = 15,
+                Separator = new Separator
+                {
+                    Step = 1,
+                    IsEnabled = true //disable it to make it invisible.
+                }
+            });
+
+            this.chart.AxisY.Add(new Axis
+            {
+                Title = Properties.Resources.NewCases,
+                LabelFormatter = value => value.ToString("N0")
+            });
+
+            this.chart.AxisY.Add(new Axis
+            {
+                Title = Properties.Resources.AverageHospital,
+                LabelFormatter = value => value.ToString("N0"),
+                Position = AxisPosition.RightTop
+            });
+
+            this.chart.LegendLocation = LegendLocation.Top;
+            this.chart.Zoom = ZoomingOptions.X;
+        }
+
+
+
+
 
         public void FillChartWithDailySwabCases(int region, string regionName)
         {
