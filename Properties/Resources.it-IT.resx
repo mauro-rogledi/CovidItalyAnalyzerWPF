@@ -123,6 +123,9 @@
   <data name="And" xml:space="preserve">
     <value>al</value>
   </data>
+  <data name="AverageHospital" xml:space="preserve">
+    <value>Media Ospedalizzati</value>
+  </data>
   <data name="BetweenDate" xml:space="preserve">
     <value>dal</value>
   </data>
@@ -275,6 +278,9 @@
   </data>
   <data name="WeeklyCases" xml:space="preserve">
     <value>Casi settimanali</value>
+  </data>
+  <data name="WeeklyCasesHospital" xml:space="preserve">
+    <value>Rapporto settimanale casi e media ospedalizzati</value>
   </data>
   <data name="WeeklyCasesInhabitant" xml:space="preserve">
     <value>Casi settimanali per 100.000 abitanti</value>
