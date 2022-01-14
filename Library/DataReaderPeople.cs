@@ -1,12 +1,12 @@
 ﻿using WPFCovidItalyAnalizer.Model;
 
-using Newtonsoft.Json;
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace WPFCovidItalyAnalizer.Library
 {
@@ -38,13 +38,13 @@ namespace WPFCovidItalyAnalizer.Library
         private static List<PeopleRegionData> ReadRegionDataFromJson()
         {
             var asciiString = Encoding.ASCII.GetString(Properties.Resources.PopolazioneRegioni, 0, Properties.Resources.PopolazioneRegioni.Length);
-            return JsonConvert.DeserializeObject<List<PeopleRegionData>>(asciiString);
+            return JsonSerializer.Deserialize<List<PeopleRegionData>>(asciiString);
         }
 
         private static List<PeopleCountyData> ReadCountyDataFromJson()
         {
             var asciiString = Encoding.ASCII.GetString(Properties.Resources.PopolazioneProvince, 0, Properties.Resources.PopolazioneProvince.Length);
-            return JsonConvert.DeserializeObject<List<PeopleCountyData>>(asciiString);
+            return JsonSerializer.Deserialize<List<PeopleCountyData>>(asciiString);
         }
     }
 }

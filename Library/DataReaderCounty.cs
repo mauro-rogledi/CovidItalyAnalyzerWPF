@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace WPFCovidItalyAnalizer.Library
 {
@@ -42,7 +43,7 @@ namespace WPFCovidItalyAnalizer.Library
 
         private static void DeserializeData(string stringdata)
         {
-            var allData = Newtonsoft.Json.JsonConvert.DeserializeObject<List<CountyData>>(stringdata);
+            var allData = JsonSerializer.Deserialize<List<CountyData>>(stringdata);
             ReadItalyCounties(allData);
 
             CountyDatas = new List<CountyData>();

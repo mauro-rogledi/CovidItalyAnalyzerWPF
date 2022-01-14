@@ -1,10 +1,5 @@
-﻿using Newtonsoft.Json;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using System.Text.Json.Serialization;
 
 namespace WPFCovidItalyAnalizer.Model
 {
@@ -17,7 +12,7 @@ namespace WPFCovidItalyAnalizer.Model
         public int codice_provincia { get; set; }
         public string denominazione_provincia { get; set; }
         public string sigla_provincia { get; set; }
-        public float totale_casi  { get; set; }
+        public float totale_casi { get; set; }
 
         [JsonIgnore]
         public float nuovi_positivi { get; set; }
