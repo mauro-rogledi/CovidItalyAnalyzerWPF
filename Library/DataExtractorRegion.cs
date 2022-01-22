@@ -217,11 +217,13 @@ namespace WPFCovidItalyAnalizer.Library
             var cases = FillWeeklyCases(region, dateFrom, dateTo);
             var swab = FillWeeklySwab(region, dateFrom, dateTo);
 
+            var db = swab.Select(s => s.value).ToList();
+
             return cases.Zip(swab, (c, s) => new ReturnData()
             {
                 lbl = c.lbl,
                 data = c.data,
-                value = c.value / s.value
+                value = s.value > 0 ? c.value / s.value : 0,
             })
             .ToList();
         }

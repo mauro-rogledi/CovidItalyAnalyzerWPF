@@ -282,6 +282,8 @@ namespace WPFCovidItalyAnalizer.Library
             var swab = DataExtractorRegion.FillWeeklySwabCases(region, dateFrom, dateTo);
             var cases = DataExtractorRegion.FillWeeklyCases(region, dateFrom, dateTo);
 
+            
+
             this.chart.Series.Clear();
             this.chart.AxisX.Clear();
             this.chart.AxisY.Clear();

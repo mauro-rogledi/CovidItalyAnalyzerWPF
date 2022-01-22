@@ -114,9 +114,14 @@ namespace WPFCovidItalyAnalizer.Library
 
         private static float GetTamponi(List<RegionData> data, RegionData curr, int i)
         {
-            float Today = curr.tamponi_test_molecolare_not_null > 0 ? curr.tamponi_test_molecolare_not_null : curr.tamponi;
+            //float Today = curr.tamponi_test_molecolare_not_null > 0 ? curr.tamponi_test_molecolare_not_null : curr.tamponi;
+            //float Yesterday = i > 0
+            //                    ? data[i - 1].tamponi_test_molecolare_not_null > 0 ? data[i - 1].tamponi_test_molecolare_not_null : data[i - 1].tamponi
+            //                    : 0;
+
+            float Today = curr.tamponi;
             float Yesterday = i > 0
-                                ? data[i - 1].tamponi_test_molecolare_not_null > 0 ? data[i - 1].tamponi_test_molecolare_not_null : data[i - 1].tamponi
+                                ? data[i - 1].tamponi
                                 : 0;
 
             return Today - Yesterday;
